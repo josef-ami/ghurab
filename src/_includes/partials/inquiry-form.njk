@@ -1,0 +1,98 @@
+{#-
+  Shared inquiry form. Used by the Home sponsorship CTA, the Services client
+  CTA, and the Contact page, so the three stay consistent in markup, spam
+  handling and disabled behaviour.
+
+  Set before including:
+    formId        unique slug -- namespaces field ids so several forms can
+                  coexist on one page without duplicate-id collisions
+    formSubject   subject line of the notification email; this is what makes
+                  sponsor / client / press mail sortable in one inbox
+    reasonLabel   label for the reason select
+    reasonOptions array of strings for the reason select
+    submitLabel   button text
+    showMessage   true to include a free-text message textarea
+
+  All forms POST to Web3Forms (see meta.web3formsKey). GitHub Pages runs no
+  server, so a third-party endpoint is the only option. While the key is unset
+  every form renders visibly disabled rather than silently discarding
+  submissions.
+-#}
+
+{% set formDisabled = "" if meta.web3formsKey else "disabled" %}
+{% set showMessage = showMessage | default(false) %}
+
+{% if not meta.web3formsKey %}
+  <p class="sponsor-cta__notice" role="status">
+    Form not yet connected — set <code>web3formsKey</code> in <code>src/_data/meta.js</code>.
+  </p>
+{% endif %}
+
+<form
+  name="{{ formId }}"
+  method="POST"
+  {% if meta.web3formsKey %}action="{{ meta.web3formsEndpoint }}"{% endif %}
+  class="sponsor-cta__form flow"
+>
+  <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}" />
+  <input type="hidden" name="subject" value="{{ formSubject }}" />
+  <input type="hidden" name="from_name" value="Ghurab website" />
+
+  {#- Honeypot: Web3Forms discards any submission where `botcheck` is set.
+     Hidden from keyboard and assistive tech, and opted out of autofill so a
+     password manager can't trip the filter for a real visitor. #}
+  <input
+    type="checkbox"
+    name="botcheck"
+    class="visually-hidden"
+    style="display: none"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+  />
+
+  <div class="sponsor-cta__field">
+    <label for="{{ formId }}-name">Name</label>
+    <input type="text" id="{{ formId }}-name" name="name" autocomplete="name" required {{ formDisabled }} />
+  </div>
+
+  <div class="sponsor-cta__field">
+    <label for="{{ formId }}-org">Organization</label>
+    <input
+      type="text"
+      id="{{ formId }}-org"
+      name="organization"
+      autocomplete="organization"
+      required
+      {{ formDisabled }}
+    />
+  </div>
+
+  {#- Email is required on every form: without a reply address an inquiry from
+     a sponsor or client is unactionable. #}
+  <div class="sponsor-cta__field">
+    <label for="{{ formId }}-email">Email</label>
+    <input type="email" id="{{ formId }}-email" name="email" autocomplete="email" required {{ formDisabled }} />
+  </div>
+
+  <div class="sponsor-cta__field">
+    <label for="{{ formId }}-reason">{{ reasonLabel }}</label>
+    <select id="{{ formId }}-reason" name="reason" required {{ formDisabled }}>
+      <option value="" disabled selected>Select one</option>
+      {% for option in reasonOptions %}
+        <option value="{{ option }}">{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  {% if showMessage %}
+    <div class="sponsor-cta__field">
+      <label for="{{ formId }}-message">Message</label>
+      <textarea id="{{ formId }}-message" name="message" rows="5" {{ formDisabled }}></textarea>
+    </div>
+  {% endif %}
+
+  <button class="button" data-button-variant="primary" type="submit" {{ formDisabled }}>
+    {{ submitLabel }}
+  </button>
+</form>

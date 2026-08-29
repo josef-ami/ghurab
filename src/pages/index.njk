@@ -118,7 +118,6 @@ description: 'Ghurab is a robotics, hackathon, and CTF competition team building
     floor -- a dead sponsor form in front of the audience in spec S3 is
     worse than an obviously-unfinished one.
   -->
-  {% set disabledAttr = "" if meta.web3formsKey else "disabled" %}
   <section class="region" aria-labelledby="sponsor-heading">
     <div class="sponsor-cta flow">
       <h2 id="sponsor-heading" class="font-display">Back Us Early</h2>
@@ -127,55 +126,13 @@ description: 'Ghurab is a robotics, hackathon, and CTF competition team building
         and autonomous systems. We're looking for sponsors who want in before this becomes a company, not after.
       </p>
 
-      {% if not meta.web3formsKey %}
-        <p class="sponsor-cta__notice" role="status">
-          Form not yet connected — set <code>web3formsKey</code> in <code>src/_data/meta.js</code>.
-        </p>
-      {% endif %}
-
-      <form
-        name="sponsor-inquiry"
-        method="POST"
-        {% if meta.web3formsKey %}action="{{ meta.web3formsEndpoint }}"{% endif %}
-        class="sponsor-cta__form flow"
-      >
-        {#- Web3Forms control fields. access_key routes the submission to the
-           registered inbox; subject/from_name shape the notification email so
-           sponsor mail is distinguishable from client and press mail once the
-           Services and Contact forms exist. #}
-        <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}" />
-        <input type="hidden" name="subject" value="Ghurab — new sponsor inquiry" />
-        <input type="hidden" name="from_name" value="Ghurab website" />
-
-        {#- Honeypot: Web3Forms discards any submission where the field named
-           `botcheck` is filled. tabindex/aria-hidden keep it away from
-           keyboard and screen-reader users; autocomplete=off keeps password
-           managers from populating it and tripping the filter. #}
-        <input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-        <div class="sponsor-cta__field">
-          <label for="sponsor-name">Name</label>
-          <input type="text" id="sponsor-name" name="name" autocomplete="name" required {{ disabledAttr }} />
-        </div>
-
-        <div class="sponsor-cta__field">
-          <label for="sponsor-org">Organization</label>
-          <input type="text" id="sponsor-org" name="organization" autocomplete="organization" required {{ disabledAttr }} />
-        </div>
-
-        <div class="sponsor-cta__field">
-          <label for="sponsor-interest">Area of interest</label>
-          <select id="sponsor-interest" name="area_of_interest" required {{ disabledAttr }}>
-            <option value="" disabled selected>Select one</option>
-            <option value="Sponsorship">Sponsorship</option>
-            <option value="Partnership">Partnership</option>
-            <option value="Press">Press</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <button class="button" data-button-variant="primary" type="submit" {{ disabledAttr }}>Become a Sponsor</button>
-      </form>
+      {% set formId = "sponsor" %}
+      {% set formSubject = "Ghurab — new sponsor inquiry" %}
+      {% set reasonLabel = "Area of interest" %}
+      {% set reasonOptions = ["Sponsorship", "Partnership", "Press", "Other"] %}
+      {% set submitLabel = "Become a Sponsor" %}
+      {% set showMessage = false %}
+      {% include "partials/inquiry-form.njk" %}
     </div>
   </section>
 </div>

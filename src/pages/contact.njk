@@ -1,0 +1,77 @@
+---
+layout: base
+title: Contact
+description: 'Get in touch with Ghurab — sponsorship, commercial work, or press.'
+permalink: /contact/index.html
+---
+
+{#-
+  Contact (spec S7, roadmap Phase 7).
+
+  The roadmap offered two options -- three separate paths, or one form with a
+  "reason" field -- and recommended the single branching form as less build
+  overhead. Taking that. It also means one endpoint to configure, one form to
+  keep accessible, and one place spam handling can go wrong instead of three.
+
+  The three audiences still get distinct framing above the form, because a
+  general and a journalist arriving here are looking for different signals,
+  even though they submit through the same control.
+-#}
+
+<div class="wrapper">
+  <header class="region" style="--region-space-top: var(--space-xl-2xl); --region-space-bottom: var(--space-m)">
+    <div class="flow">
+      <h1 class="font-display">Contact</h1>
+      <p class="hero-subline" style="margin-inline: 0">
+        One form, three conversations. Tell us which one you're starting.
+      </p>
+    </div>
+  </header>
+
+  <section class="region" aria-labelledby="routes-heading" style="--region-space-bottom: var(--space-m)">
+    <h2 id="routes-heading" class="visually-hidden">Reasons to get in touch</h2>
+    <div class="grid" data-layout="thirds">
+      <div class="pillar flow">
+        <h3 class="font-display">Sponsors</h3>
+        <p>Backing the competition team — robotics, hackathons, CTFs — before this becomes a company.</p>
+      </div>
+      <div class="pillar flow">
+        <h3 class="font-display">Clients</h3>
+        <p>Contract work in automation, robotics, or security. See <a href="/services/">Services</a> first.</p>
+      </div>
+      <div class="pillar flow">
+        <h3 class="font-display">Press</h3>
+        <p>Questions, interviews, and background on the team and its work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="region" aria-labelledby="contact-form-heading">
+    <div class="sponsor-cta flow">
+      <h2 id="contact-form-heading" class="font-display">Get in Touch</h2>
+
+      {% set formId = "contact" %}
+      {% set formSubject = "Ghurab — new contact enquiry" %}
+      {% set reasonLabel = "Reason for contact" %}
+      {% set reasonOptions = ["Sponsorship", "Client work", "Press", "Other"] %}
+      {% set submitLabel = "Send Message" %}
+      {% set showMessage = true %}
+      {% include "partials/inquiry-form.njk" %}
+
+      {#- Direct address as a fallback: some of the audience in spec S3 will
+         not use a web form at all, and a form-only contact page reads as
+         evasive to press. personal.email is still a placeholder -- see the
+         placeholder list. #}
+      {% if personal.email %}
+        <p class="contact-direct">
+          Prefer email? <a href="mailto:{{ personal.email }}">{{ personal.email }}</a>
+        </p>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% css "local" %}
+  {% include "css/home.css" %}
+  {% include "css/services.css" %}
+{% endcss %}

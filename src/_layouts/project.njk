@@ -36,17 +36,49 @@ schema: CreativeWork
     {% endif %}
 
     {% if viewer %}
-      {#- Flagship project. Phase 5 replaces this block with a real
-         <model-viewer> embed pointed at the glTF/GLB export. Left as an
-         explicit placeholder rather than a silent no-op so it's obvious
-         this project is queued for the viewer treatment. #}
-      <div class="p-s-m" style="border: var(--stroke); border-radius: var(--border-radius-medium);">
-        <p class="text-theme-text-accent">[3D viewer goes here — Phase 5.]
-          {% if cadUrl %}In the meantime: <a href="{{ cadUrl }}">CAD source</a>.{% endif %}
-        </p>
-      </div>
+      {#- Flagship project (roadmap Phase 5: viewer for 2-3 projects only).
+         <model-viewer> is loaded per-page rather than site-wide -- it's a
+         heavy web component and only these pages need it.
+
+         Loaded from a CDN, which is the documented distribution route for
+         this component. Note it's the only third-party runtime dependency
+         on the site; if that matters, vendor the module into
+         src/assets/scripts/ and point the src at the local copy instead.
+
+         Degrades to the CAD link below if the script fails or JS is off. #}
+      <script
+        type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+      ></script>
+
+      {% if modelUrl %}
+        <model-viewer
+          class="project-viewer"
+          src="{{ modelUrl }}"
+          alt="Interactive 3D model of {{ title }}"
+          camera-controls
+          touch-action="pan-y"
+          auto-rotate
+          shadow-intensity="1"
+          loading="lazy"
+        >
+          <p slot="poster" class="text-theme-text-accent">Loading 3D model…</p>
+        </model-viewer>
+      {% else %}
+        <div class="project-viewer__empty">
+          <p class="text-theme-text-accent">
+            Flagged for the 3D viewer, but no <code>modelUrl</code> is set in this project's front matter yet.
+            Add a glTF/GLB export to enable it.
+            {% if cadUrl %}In the meantime: <a href="{{ cadUrl }}">CAD source</a>.{% endif %}
+          </p>
+        </div>
+      {% endif %}
     {% endif %}
 
     {{ content | safe }}
   </div>
 </div>
+
+{%- css "local" -%}
+  {%- include 'css/project.css' -%}
+{%- endcss -%}

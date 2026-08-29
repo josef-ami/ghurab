@@ -1,0 +1,120 @@
+---
+layout: base
+title: Services
+description: 'Boutique industrial automation, industrial robotics, and cybersecurity services — offensive security, physical security, CEMA, and cyber-physical systems.'
+permalink: /services/index.html
+---
+
+{#-
+  Services (spec S6, roadmap Phase 6).
+
+  Register: identical to Home. The spec is explicit that the cinematic tone
+  runs across commercial pages too (S1) -- no shift into corporate-brochure
+  voice, no "solutions" language, no invented client logos or testimonials.
+
+  Every claim here describes a capability the team offers, not work already
+  delivered. There is no shipped commercial work yet (S2), so there are no
+  case studies, no client names, and no metrics. Those get added once real
+  engagements exist -- see the placeholder list.
+-#}
+
+<div class="wrapper">
+  <header class="region" style="--region-space-top: var(--space-xl-2xl); --region-space-bottom: var(--space-m)">
+    <div class="flow">
+      <h1 class="font-display">Services</h1>
+      <p class="hero-subline" style="margin-inline: 0">
+        Engineering capability, available on contract. The same people, tools, and discipline behind the
+        competition work.
+      </p>
+    </div>
+  </header>
+
+  <section class="region" aria-labelledby="automation-heading" style="--region-space-bottom: var(--space-m)">
+    <div class="service-line flow">
+      <p class="service-line__index">01</p>
+      <h2 id="automation-heading" class="font-display text-step-2">Industrial Automation</h2>
+      <p>
+        Boutique automation work, industry-agnostic. Process control, instrumentation, and the integration
+        layer between machines that were never designed to talk to each other.
+      </p>
+      <ul class="service-tags | cluster gutter-xs-s" role="list">
+        <li class="button" data-small-button>Process control</li>
+        <li class="button" data-small-button>Instrumentation</li>
+        <li class="button" data-small-button>Systems integration</li>
+        <li class="button" data-small-button>Retrofit</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="region" aria-labelledby="robotics-heading" style="--region-space-bottom: var(--space-m)">
+    <div class="service-line flow">
+      <p class="service-line__index">02</p>
+      <h2 id="robotics-heading" class="font-display text-step-2">Industrial Robotics</h2>
+      <p>
+        Industry- and form-factor-agnostic. Manipulators, mobile platforms, and purpose-built mechanisms —
+        designed, built, and instrumented for the environment they actually have to survive.
+      </p>
+      <ul class="service-tags | cluster gutter-xs-s" role="list">
+        <li class="button" data-small-button>Mechanical design</li>
+        <li class="button" data-small-button>Controls</li>
+        <li class="button" data-small-button>Perception</li>
+        <li class="button" data-small-button>Prototyping</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="region" aria-labelledby="cyber-heading" style="--region-space-bottom: var(--space-m)">
+    <div class="service-line flow">
+      <p class="service-line__index">03</p>
+      <h2 id="cyber-heading" class="font-display text-step-2">Cybersecurity</h2>
+      <p>
+        Offensive-minded security work across the full surface — not just the parts that live on a network.
+      </p>
+
+      <div class="grid" data-layout="thirds" style="--flow-space: var(--space-m)">
+        <div class="pillar flow">
+          <h3 class="font-display">Offensive Security</h3>
+          <p>Penetration testing and adversarial assessment against systems as deployed, not as documented.</p>
+        </div>
+        <div class="pillar flow">
+          <h3 class="font-display">Physical Security</h3>
+          <p>Access control, perimeter, and the seams where physical and digital controls stop covering for each other.</p>
+        </div>
+        <div class="pillar flow">
+          <h3 class="font-display">CEMA</h3>
+          <p>Cyberspace electromagnetic activities — the spectrum treated as terrain rather than background noise.</p>
+        </div>
+        <div class="pillar flow">
+          <h3 class="font-display">CPS Security</h3>
+          <p>Cyber-physical systems, where a software failure becomes a mechanical one and the blast radius is measured in metres.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="region" aria-labelledby="client-heading">
+    <div class="sponsor-cta flow">
+      <h2 id="client-heading" class="font-display">Start a Conversation</h2>
+      <p>
+        Tell us what you're building, breaking, or defending. If it's outside what we can do well, we'll say so
+        rather than take the contract.
+      </p>
+
+      {#- Separate form id and subject from the Home sponsor CTA (roadmap
+         Phase 6: "Client inquiry CTA, separate from the sponsor form"), so
+         client mail is sortable from sponsor mail in the same inbox. #}
+      {% set formId = "client" %}
+      {% set formSubject = "Ghurab — new client inquiry" %}
+      {% set reasonLabel = "Service line" %}
+      {% set reasonOptions = ["Industrial Automation", "Industrial Robotics", "Cybersecurity", "Not sure yet"] %}
+      {% set submitLabel = "Send Inquiry" %}
+      {% set showMessage = true %}
+      {% include "partials/inquiry-form.njk" %}
+    </div>
+  </section>
+</div>
+
+{% css "local" %}
+  {% include "css/home.css" %}
+  {% include "css/services.css" %}
+{% endcss %}

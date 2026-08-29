@@ -9,13 +9,20 @@ permalink: 'projects/{% if pagination.pageNumber >=1 %}page-{{ pagination.pageNu
 ---
 
 <div class="wrapper">
-  <header class="full | section spot-color-theme-secondary">
-    <div class="section__inner flow region" style="--region-space-top: var(--space-xl-2xl)">
-      <h1 class="text-center text-theme-light">{{ title }}</h1>
-    </div>
-
-    {% svg "divider/edgy", null, "divider" %}
+  {#- Was a `spot-color-theme-secondary` band: #eaeaea text on the #9a9a9a
+     grey surface, about 1.9:1 -- well under the 4.5:1 minimum, and the
+     accessibility pass is a stated Phase 1 requirement. Now matches the
+     Services/Contact header pattern on the normal near-black surface. #}
+  <header class="region flow" style="--region-space-top: var(--space-xl-2xl); --region-space-bottom: var(--space-s)">
+    <h1 class="font-display">{{ title }}</h1>
   </header>
+
+  <div class="region flow prose" style="--region-space-top: var(--space-s); --region-space-bottom: var(--space-m)">
+    <p>
+      Build documentation for each project — whitepapers, source, and CAD where it exists. Flagship pieces carry an
+      interactive 3D model.
+    </p>
+  </div>
 
   <custom-masonry layout="50-50">
     {% asyncEach item in pagination.items %}

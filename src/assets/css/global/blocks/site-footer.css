@@ -2,18 +2,12 @@
   --cluster-horizontal-alignment: center;
 }
 
-/* increase tab size */
-.site-footer a:not(.creator a) {
+/* increase tap target size */
+.site-footer a {
   padding: var(--space-xs);
 }
-.site-footer .creator a:hover {
-  color: transparent;
-  background-image: var(--gradient-rainbow);
-  background-size: 100%;
-  background-repeat: repeat;
-  background-clip: text;
-}
 
-.site-footer .creator a:hover svg {
-  color: var(--color-primary);
-}
+/* The starter's `.creator` rules were removed along with the rainbow gradient
+   palette: they relied on --gradient-rainbow, which no longer exists in the
+   single-accent Ghurab token set, and the rewritten footer has no .creator
+   block for them to style. */

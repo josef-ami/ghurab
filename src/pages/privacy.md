@@ -3,39 +3,45 @@ title: Privacy Policy
 discover:
   title: Privacy Policy
 permalink: /privacy/index.html
-description: I respect the EU General Data Protection Regulation (GDPR). This policy document explains how I collect and handle any information you provide to me.
+description: 'How Ghurab handles information submitted through this website.'
 date: "Last Modified"
 layout: page
 ---
 
-Edit your details in `_data/personal.yaml`
+<!-- PLACEHOLDER — NEEDS LEGAL REVIEW BEFORE LAUNCH.
 
-I respect the EU General Data Protection Regulation (GDPR) and this policy document explains how I collect and handle any information you provide to me.
+     The starter's version stated "This website does not collect any data" in
+     first-person voice. That is now factually wrong: the sponsor, client and
+     contact forms POST to Web3Forms, a third-party processor, which receives
+     everything a visitor types plus their IP address.
 
-**What background data is collected?**
-This site does not use any third party tracking scripts.
+     Publishing the old text would have been a false privacy claim to an
+     audience that includes government secretaries and journalists. This is an
+     honest description of the current behaviour, not a compliant policy —
+     jurisdiction (Bangladesh, plus GDPR if EU visitors are in scope), a data
+     controller identity, and a retention period all still need deciding. -->
 
-**How do I use the data you provide?**
-This website does not collect any data.
+**This page is a placeholder pending legal review.**
 
-**How secure is your data?**
-Very secure, as this website does not collect any information.
+## What this site collects
 
-**How secure is this website?**
-This website transmits itself using HTTPS, encrypting all data between the browser and the server. Your network provider can still see that you are downloading assets from this site, but not its content. This also protects you from third parties intercepting data, for example, while browsing on public WiFi, or from network providers injecting advertisements on this site. All relevant response HTTP headers are set for your protection and the Content Security Policy is adjusted to this websites requirements.
+Ghurab does not run analytics or third-party tracking scripts on this site.
 
-**Data controller**
+## Forms
 
-{{ personal.address }}
+The sponsorship, client, and contact forms on this site are submitted to
+**Web3Forms**, a third-party form provider, which forwards them to us by email.
+When you submit a form, the information you enter — along with technical data
+such as your IP address — is processed by Web3Forms under
+[their privacy policy](https://web3forms.com/privacy). Do not submit
+confidential or sensitive information through these forms.
 
-If you have any questions or doubts, please contact me: {{ personal.email }}.
+## Hosting
 
-**Changes to the policy**
-If I change the content of this policy, those changes will be effective at the time I post them here.
+This site is served by GitHub Pages. GitHub may log requests, including IP
+addresses, as described in the
+[GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
-**Complaints**
-If you have any reason to complain about the way I handle your privacy, please contact me by email: {{ personal.email }}.
+## Contact
 
----
-
-*Last updated: {{ page.date | formatDate('MMMM D, YYYY') }}*
+**[Contact address to be added.]** See the [contact page](/contact/).

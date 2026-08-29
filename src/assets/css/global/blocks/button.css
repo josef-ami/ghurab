@@ -56,17 +56,27 @@
   transform: scale(99%);
 }
 
-/* Variants */
+/* Variants.
+
+   Label colours are dark on every filled variant. The starter used near-white
+   labels on primary/secondary, which worked against its mid-dark brand colours
+   but fails badly against the Ghurab palette: #eaeaea on the cyan #3ee6f0
+   measured 1.27:1, and on the grey secondary 2.34:1 -- both far under the
+   4.5:1 minimum, on the site's main calls to action. Dark labels give 12.99:1
+   and 7.04:1 respectively.
+
+   Keep this in mind before changing --color-primary: a light accent needs a
+   dark label, and swapping to a dark accent means revisiting these. */
 .button[data-button-variant='primary'] {
   --button-bg: var(--color-primary);
-  --button-color: var(--color-light);
-  --button-color: color-mix(in oklab, var(--color-primary) 5%, var(--color-light));
+  --button-color: var(--color-dark);
+  --button-color: color-mix(in oklab, var(--color-primary) 10%, var(--color-dark));
 }
 
 .button[data-button-variant='secondary'] {
   --button-bg: var(--color-secondary);
-  --button-color: var(--color-light);
-  --button-color: color-mix(in oklab, var(--color-secondary) 5%, var(--color-light));
+  --button-color: var(--color-dark);
+  --button-color: color-mix(in oklab, var(--color-secondary) 10%, var(--color-dark));
 }
 
 .button[data-button-variant='tertiary'] {

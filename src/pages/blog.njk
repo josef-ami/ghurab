@@ -9,18 +9,24 @@ permalink: 'blog/{% if pagination.pageNumber >=1 %}page-{{ pagination.pageNumber
 ---
 
 <div class="wrapper">
-  <header class="full | section spot-color-theme-secondary">
-    <div class="section__inner flow region" style="--region-space-top: var(--space-xl-2xl)">
-      <h1 class="text-center text-theme-light">{{ title }}</h1>
-    </div>
-
-    {% svg "divider/edgy", null, "divider" %}
+  {#- Was a `spot-color-theme-secondary` band: #eaeaea text on the #9a9a9a
+     grey surface, about 1.9:1 -- well under the 4.5:1 minimum, and the
+     accessibility pass is a stated Phase 1 requirement. Now matches the
+     Services/Contact header pattern on the normal near-black surface. #}
+  <header class="region flow" style="--region-space-top: var(--space-xl-2xl); --region-space-bottom: var(--space-s)">
+    <h1 class="font-display">{{ title }}</h1>
   </header>
 
-  <div class="region flow prose" style="--region-space-top: var(--space-xl-2xl)">
-    <p>This blog has a pagination of <strong>{{ pagination.size }}</strong> posts per page.<br>
-      The pagination is only shown if there are more posts ({{ collections.posts.length }}) than items per
-      page ({{ pagination.size }}).
+  {#- The starter printed its own pagination settings here as demo copy.
+     Replaced with a real standing description of what the blog is, plus the
+     feed link -- journalists and competition peers are an explicit audience
+     (spec S3) and RSS is how they track a team without checking manually. #}
+  <div class="region flow prose" style="--region-space-top: var(--space-l-xl); --region-space-bottom: var(--space-m)">
+    <p>
+      Build logs, competition writeups, and CTF notes — what we tried, what broke, and what we'd do differently.
+    </p>
+    <p class="text-step-min-1">
+      <a class="button" data-small-button href="/feed.xml">Subscribe via RSS</a>
     </p>
   </div>
 

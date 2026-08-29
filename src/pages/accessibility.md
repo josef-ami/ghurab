@@ -1,36 +1,45 @@
 ---
 title: 'Accessibility Statement'
-description: 'Commitment to digital accessibility and how to report accessibility issues.'
+description: 'Ghurab’s commitment to digital accessibility and how to report barriers.'
 date: "Last Modified"
 permalink: /accessibility/index.html
 layout: page
 ---
 
-Accessibility design is about ensuring equal access for people with disabilities. It is about removing barriers to access.
+<!-- Rewritten from the starter's version, which was in first-person voice,
+     claimed conformance on behalf of "Eleventy Excellent" rather than this
+     site, and linked to /get-started/ — a starter docs page that was deleted,
+     so the link 404'd.
 
-I am very committed to this principle and I continually try to improve the user experience for everyone.
+     Deliberately claims "aims to conform" rather than "conforms": no full
+     audit has been run against this build yet. Upgrade the wording once
+     `npm run test:a11y` passes across every page and a manual keyboard and
+     screen-reader pass is done. -->
 
-## Conformance Status
+Accessibility is about removing barriers so everyone can use this site. We treat
+it as a build requirement, not a finishing touch.
 
-The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) define requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.
+## Conformance status
 
-_Eleventy Excellent_ aims to be conformant with [ WCAG 2.1 Level AA.](https://www.w3.org/WAI/standards-guidelines/wcag/)
+This site **aims to conform** with
+[WCAG 2.1 Level AA](https://www.w3.org/WAI/standards-guidelines/wcag/). A full
+audit has not yet been completed, so we do not claim conformance.
 
-Compliance depends on how users implement and customize the starter for their specific content and use cases.
+Known work in progress:
+
+- Automated checks run against the main pages; full-site coverage is not yet complete.
+- A manual keyboard and screen-reader pass is still outstanding.
 
 ## Testing
 
-[pa11y-ci](https://github.com/pa11y/pa11y-ci) is used to run automated accessibility tests, [see the Docs](/get-started/#tests).
+Automated tests use [pa11y-ci](https://github.com/pa11y/pa11y-ci), run with
+`npm run test:a11y`.
+
+The site is single-theme by design (near-black background, cyan accent) and
+respects `prefers-reduced-motion`: the home page cold-open animation resolves
+immediately rather than playing out for visitors who ask for reduced motion.
 
 ## Feedback
 
-I very much welcome your feedback and suggestions on the accessibility of this starter project. Please let me know if you encounter any accessibility barriers:
-
-- **GitHub Issues**: [Report accessibility issues](https://github.com/madrilene/eleventy-excellent/issues)
-- **Email**: {{ personal.email }}
-
-**Response Time**: I aim to respond to feedback within one week.
-
----
-
-*Last updated: {{ page.date | formatDate('MMMM D, YYYY') }}*
+If you hit a barrier on this site, tell us — it's treated as a bug. Reach us via
+the [contact page](/contact/).

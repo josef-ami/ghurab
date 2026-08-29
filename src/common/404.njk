@@ -1,0 +1,51 @@
+---
+title: Signal Lost
+layout: base
+permalink: /404.html
+eleventyExcludeFromCollections: true
+excludeFromSitemap: true
+description: 'That page does not exist.'
+---
+
+{#-
+  In-brand 404 (roadmap Phase 9).
+
+  Was the starter's plain markdown page with first-person copy ("let me know
+  if you encounter more errors") -- wrong voice for a team, and it exposed the
+  raw contact address to scrapers on the one page bots hit most.
+
+  Uses the same near-black surface, mono status line and cyan accent as the
+  rest of the site, and routes to the three places a lost visitor actually
+  wants, rather than dead-ending on a link home.
+
+  Note this page must use absolute paths that HtmlBasePlugin can rewrite: a
+  404 is served from arbitrary URLs, so relative links would resolve against
+  whatever path the visitor mistyped.
+-#}
+
+<div class="wrapper">
+  <div class="cover" style="--cover-min-height: 70vh">
+    <div class="error-page flow" data-centered>
+      <p class="error-page__code">ERROR 404</p>
+      <h1 class="font-display">Signal Lost</h1>
+      <p class="hero-subline">
+        That page doesn't exist, or it moved. The crow didn't see this one coming either.
+      </p>
+
+      <div class="hero-links cluster">
+        <a class="button" data-button-variant="primary" href="/">Return to base</a>
+        <a class="button" data-ghost-button href="/blog/">Read the blog</a>
+        <a class="button" data-ghost-button href="/projects/">See the work</a>
+      </div>
+
+      <p class="error-page__note">
+        If you followed a link here, tell us on the <a href="/contact/">contact page</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% css "local" %}
+  {% include "css/home.css" %}
+  {% include "css/error.css" %}
+{% endcss %}

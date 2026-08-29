@@ -5,7 +5,7 @@ export const siteName = 'Ghurab';
 // Present-tense claims describe the competition team; long-term ambitions
 // ("autonomous systems") stay framed as trajectory, per spec S2.
 export const siteDescription =
-  'Ghurab is an engineering team building toward autonomous systems, industrial robotics, and cybersecurity.';
+  'Ghurab is a robotics, hackathon, and CTF competition team building toward autonomous systems, industrial robotics, and cybersecurity.';
 export const siteType = 'Organization'; // schema -- Ghurab is a team/brand, not a person
 // Stored in title case; the Home hero uppercases it via CSS (.hero-motto),
 // the footer renders it as-is.
@@ -24,7 +24,7 @@ export const mottoTranslation = 'Intellect governs power';
 // TODO: paste the access key Web3Forms emails you. While this is empty, the
 // sponsor form renders visibly disabled instead of silently swallowing
 // submissions.
-export const web3formsKey = '7370fa3e-1a45-402e-babb-d16831304d53';
+export const web3formsKey = '';
 export const web3formsEndpoint = 'https://api.web3forms.com/submit';
 
 export const locale = 'en_EN';
@@ -124,13 +124,18 @@ export const greenweb = {
 export const tests = {
   pa11y: {
     // keep customPaths empty if you want to test all pages
-    customPaths: ['/', '/about/', '/blog/', '/styleguide/'],
+    customPaths: ['/', '/about/', '/blog/', '/projects/', '/services/', '/contact/', '/404.html', '/styleguide/'],
     globalIgnore: []
   }
 };
+// "View this page on GitHub" link under each post. Disabled: it builds its URL
+// from package.json's `repository`, which still pointed at the upstream starter
+// repo -- so every post linked visitors to someone else's project. Set allow to
+// true once package.json `repository` names the real Ghurab repo, and add a
+// `githubEdit` string (the partial reads meta[page.lang].blog.githubEdit, which
+// is currently undefined and renders as an empty label).
 export const viewRepo = {
-  // this is for the view/edit on github link. The value in the package.json will be pulled in.
-  allow: true,
+  allow: false,
   infoText: 'View this page on GitHub'
 };
 export const easteregg = true;

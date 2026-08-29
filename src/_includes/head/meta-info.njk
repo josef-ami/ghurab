@@ -88,8 +88,12 @@
 <!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
 {#- No `| url` filter here: Eleventy 3's default HtmlBasePlugin already
    applies --pathprefix to href attributes. The filter double-prefixed
-   these to /ghurab/ghurab/favicon.ico, 404ing every icon on GitHub Pages. #}
+   these to /ghurab/ghurab/favicon.ico, 404ing every icon on GitHub Pages.
+
+   No favicon.svg: the Ghurab mark exists only as a raster (see
+   assets/images/brand/ghurab-mark.png). Add the link back once a real
+   vector version of the mark exists -- an SVG wrapping a base64 PNG would
+   be a vector in name only and buys nothing. #}
 <link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />

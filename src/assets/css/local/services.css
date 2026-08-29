@@ -1,0 +1,45 @@
+/*
+  Services page. Deliberately reuses .sponsor-cta, .pillar and .hero-subline
+  from home.css rather than restyling them: the spec calls for the same
+  cinematic register on the commercial pages (S1), and sharing the components
+  is what actually enforces that rather than just intending it.
+
+  Only what's genuinely new to this page lives here.
+*/
+
+/* Service line: numbered rule across the top, so the three lines read as a
+   sequence rather than three unrelated cards. */
+.service-line {
+  --flow-space: var(--space-s);
+  border-block-start: var(--stroke);
+  padding-block-start: var(--space-m);
+}
+
+.service-line__index {
+  font-family: var(--font-mono);
+  font-size: var(--size-step-min-2);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-primary);
+}
+
+/* Capability tags. These are labels, not controls -- they reuse the button
+   block for its visual treatment only, so they must not be focusable or
+   announced as interactive. Rendered as <li> inside a role="list". */
+.service-tags {
+  --flow-space: var(--space-m);
+  padding: 0;
+  list-style: none;
+}
+
+.service-tags li {
+  cursor: default;
+}
+
+/* Contact page: direct-email fallback under the form. */
+.contact-direct {
+  --flow-space: var(--space-l);
+  padding-block-start: var(--space-m);
+  border-block-start: var(--stroke);
+  font-size: var(--size-step-min-1);
+  color: var(--color-text-accent);
+}

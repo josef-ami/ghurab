@@ -4,3 +4,11 @@
   font-size: var(--size-step-0);
   text-decoration: none;
 }
+
+/* Ghurab mark in the header. Sized to the wordmark's cap height rather than a
+   fixed px value so it stays balanced as the fluid type scale resizes. */
+.site-logo__mark {
+  block-size: 1.9em;
+  inline-size: auto;
+  flex: none;
+}

@@ -1,0 +1,29 @@
+/*
+  Project detail page: the flagship 3D viewer (roadmap Phase 5).
+  Only the 2-3 flagship projects load this; ordinary projects link out to CAD.
+*/
+
+.project-viewer {
+  --flow-space: var(--space-m-l);
+  display: block;
+  inline-size: 100%;
+  block-size: clamp(20rem, 55vh, 34rem);
+  background: var(--color-bg-accent);
+  border: var(--stroke);
+  border-radius: var(--border-radius-medium);
+}
+
+/* model-viewer upgrades to a custom element; before that it's an unknown
+   inline element, so reserve the space to avoid a layout shift on load. */
+model-viewer:not(:defined) {
+  display: block;
+  block-size: clamp(20rem, 55vh, 34rem);
+}
+
+.project-viewer__empty {
+  --flow-space: var(--space-m-l);
+  padding: var(--space-s-m);
+  border: 2px dashed var(--color-bg-accent-2);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--size-step-min-1);
+}

@@ -1,22 +1,26 @@
 ---
 title: About
 permalink: /about/index.html
-description: 'Eleventy Excellent is inspired bythe companion website of Andy Bell’s talk "Be the browser’s mentor, not its micromanager".'
+description: 'Ghurab is a competition team building toward autonomous systems, industrial robotics, and cybersecurity.'
 layout: page
 ---
 
-This starter uses modern CSS, fluid type & space, flexible Layouts and Progressive Enhancement, wrapped in a basic template.
+<!-- PLACEHOLDER PAGE.
+     This replaced the starter's About page, which was still describing the
+     Eleventy Excellent starter itself (with an embedded talk by its author) on
+     a live public URL under the Ghurab brand.
 
-It is built around the CSS boilerplate by Andy Bell and inspired by Andy's talk **'Be the browser’s mentor, not its micromanager'**.
+     Real content is blocked on a spec open item (S11): whether to feature
+     founders by name. Nothing here is invented — no names, no dates, no
+     headcount. -->
 
-If you want to know exactly how it all works, [read this article on piccalil.li](https://piccalil.li/blog/a-css-project-boilerplate/).
+Ghurab is a competition team — robotics, hackathons, and CTFs — building toward
+autonomous systems, industrial robotics, and cybersecurity.
 
-The aim is to spread the idea and use of this _excellent_ workflow. To work with it efficiently you should be familiar with [cube.fyi](https://cube.fyi/), [utopia.fyi](https://utopia.fyi/) and [every-layout.dev](https://every-layout.dev/).
+We are engineering students. The work on this site is competition work, and the
+services we offer are the capabilities that came out of it.
 
-- buildexcellentwebsit.es
-- Study the [original CSS boilerplate](https://github.com/Set-Creative-Studio/cube-boilerplate/tree/main)
+**[Team details to be added.]** Founder and member backgrounds, and whether to
+feature people by name, are still being decided.
 
-## Watch the talk
-
-<div><custom-youtube @slug="JqnMI1AXl6w" @label="Andy Bell – Be the browser’s mentor, not its micromanager"> </custom-youtube></div>
-
+Want to work with us, back us, or ask about the work? [Get in touch](/contact/).

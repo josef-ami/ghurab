@@ -1,0 +1,27 @@
+/* 404 page. Reuses the hero primitives from home.css; only the status-line
+   treatment is specific to this page. */
+
+.error-page {
+  --flow-space: var(--space-m);
+  max-inline-size: 44rem;
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.error-page > * {
+  margin-inline: auto;
+}
+
+.error-page__code {
+  font-family: var(--font-mono);
+  font-size: var(--size-step-min-1);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-primary);
+}
+
+.error-page__note {
+  --flow-space: var(--space-l);
+  font-size: var(--size-step-min-1);
+  color: var(--color-text-accent);
+}

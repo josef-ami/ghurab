@@ -3,7 +3,18 @@
 
   <div class="repel ontop gutter-s">
     <a href="/" class="logo | cluster" {{ indicateActiveHome }}>
-      {% svg "misc/logo" %}
+      {#- Raster, not the {% svg %} shortcode: the Ghurab mark has no vector
+         source yet (see meta-info.njk). eleventy:ignore keeps eleventy-img
+         from transforming it -- at this size the original 256px PNG is
+         already smaller than the responsive-image markup would be. #}
+      <img
+        eleventy:ignore
+        src="/assets/images/brand/ghurab-head-light.png"
+        alt=""
+        width="256"
+        height="256"
+        class="site-logo__mark"
+      />
 
       <span class="font-display">{{ meta.siteName }}</span>
     </a>

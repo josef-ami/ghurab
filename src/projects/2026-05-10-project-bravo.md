@@ -6,6 +6,7 @@ whitepaperUrl: ''
 repoUrl: 'https://github.com/ghurab/PLACEHOLDER-repo-bravo'
 cadUrl: 'https://github.com/ghurab/PLACEHOLDER-repo-bravo/tree/main/cad'
 viewer: true
+modelUrl: '' # TODO: path to glTF/GLB export, e.g. /assets/models/bravo.glb
 ---
 
 [Full project writeup goes here. Flagged as a flagship project — Phase 5 will embed an in-browser 3D viewer here instead of just linking out to the CAD repo.]
