@@ -1,163 +1,125 @@
-# Eleventy Excellent
+# Ghurab — Placeholder Inventory
 
-Easy to use Eleventy starter, based on the workflow suggested by Andy Bell's [buildexcellentwebsit.es](https://buildexcellentwebsit.es/).
+Everything on this site that is not yet real. Nothing in this list was invented:
+where a fact was missing it was left as a marked placeholder rather than filled
+with plausible-looking content, because the audience in spec S3 (generals, VCs,
+journalists) will check.
 
-![GitHub Repo stars](https://img.shields.io/github/stars/madrilene/eleventy-excellent?style=flat-square&logo=github&logoColor=white&label=GitHub%20stars)
-[![Follow @lene@front-end.social](https://img.shields.io/mastodon/follow/109292536543732634?domain=https%3A%2F%2Ffront-end.social&style=flat-square&logo=Mastodon&logoColor=white&labelColor=%235B4BE1)](https://front-end.social/@lene)
+---
 
-If you end up using this starter, feel free to send me a link, I'd love to see it!
+## 2. CONTENT TO SUPPLY
 
-- [Eleventy Excellent](#eleventy-excellent)
-  - [Preview](#preview)
-  - [Features](#features)
-  - [First steps](#first-steps)
-  - [Development](#development)
-    - [Install dependencies](#install-dependencies)
-    - [Working locally](#working-locally)
-    - [Creating a production build](#creating-a-production-build)
-  - [Built with Eleventy Excellent](#built-with-eleventy-excellent)
-  - [Credits and Thank yous](#credits-and-thank-yous)
+### 2.1 Track record — Home page
+- **File:** `src/pages/index.njk` (four `.track-record-card` entries)
+- **Need:** `[Competition name] — [result] — [date]` ×2,
+  `[Hackathon name] — [result] — [date]`, `[CTF name] — [placement] — [date]`
+- Dashed borders mark these as unfilled; restyle once real.
+- Card count is arbitrary — add or remove freely.
 
-## Preview
+### 2.2 Blog seed posts (4 placeholder files)
+- `src/posts/2026/2026-01-15-build-log-placeholder.md`
+- `src/posts/2026/2026-03-22-competition-placeholder.md`
+- `src/posts/2026/2026-05-08-ctf-placeholder.md`
+- `src/posts/2026/2026-07-30-general-placeholder.md`
+- Each needs real title, description, date, tags, body. **Dates are fabricated**
+  and drive sort order and the RSS feed.
+- Tags in use: `build-log`, `competition`, `ctf`, `general`.
+- Note: OG preview images are generated from post titles, so stale titles leave
+  stale files in `src/assets/og-images/` — delete those when renaming.
 
-https://eleventy-excellent.netlify.app/
+### 2.3 Project entries (3 placeholder files)
+- `src/projects/2026-03-01-project-alpha.md` — Autonomous Ground Platform
+- `src/projects/2026-05-10-project-bravo.md` — Manipulator Arm (**flagship**)
+- `src/projects/2026-07-20-project-charlie.md` — CTF Toolkit
+- Each needs: `title`, `summary`, `date`, body, and any of
+  `whitepaperUrl` / `repoUrl` / `cadUrl`. Empty link fields simply don't render.
+- `repoUrl`/`cadUrl` currently point at `github.com/ghurab/PLACEHOLDER-repo-*`.
+- `whitepaperUrl` on alpha points at `/assets/placeholder/whitepaper-alpha.pdf`
+  — **this file does not exist**; the link 404s until a real PDF is added.
 
-## Features
+### 2.4 Flagship 3D model
+- **File:** `src/projects/2026-05-10-project-bravo.md` → `modelUrl`
+- **Need:** a glTF/GLB export. Until set, the viewer area shows an explicit
+  "no model yet" note rather than an empty box.
+- Spec calls for 2–3 flagship projects; only one is flagged so far.
 
-**This starter includes:**
+### 2.5 Team / About
+- **File:** `src/pages/about.md` — in-brand stub; team section marked
+  `[Team details to be added.]`
+- **File:** `src/_data/meta.js` → `author.name` is `'Ghurab'` (team-level).
+- **Open spec item (S11):** whether to feature founders by name.
 
-- **Cube Boilerplate**: Created by Andy Bell, available under the MIT License. [View Repository](https://github.com/Set-Creative-Studio/cube-boilerplate)
-- Accessible site navigation, editable in `src/_data/navigation.js`
-- Image optimization with Eleventy-img _([see blog post](https://eleventy-excellent.netlify.app/blog/post-with-an-image/))_
-- Youtube embed with lite-youtube _([see blog post](https://eleventy-excellent.netlify.app/blog/post-with-a-video/))_
-- Easy resource fetching with eleventy-fetch _([see blog post](https://eleventy-excellent.netlify.app/blog/post-with-fetched-content/))_
-- Syntax highlighting via eleventy-plugin-syntaxhighlight _([see blog post](https://eleventy-excellent.netlify.app/blog/post-with-some-code/))_
-- Advanced markdown handling _([see blog post](https://eleventy-excellent.netlify.app/blog/post-with-all-the-markdown/))_
-- 301 redirects for Netlify _([see blog post](https://eleventy-excellent.netlify.app/blog/post-with-301-redirects/))_
-- Automatically generated Open Graph images for blog posts _([see blog post](https://eleventy-excellent.netlify.app/blog/open-graph-images/))_
-- Tailwind CSS - but not how you might expect _([see blog post](https://eleventy-excellent.netlify.app/blog/what-is-tailwind-css-doing-here/))_
-- XML-sitemap
-- dayjs handling dates & times
-- Bundling via esbuild
-- RSS feed (now you can add more than one)
-- Links to platforms and social media profiles
-- Mastodon domain verification snippet
-- carbon.txt - to show that their digital infrastructure runs on green electricity
-- Accessible dark and light mode based on user preference and custom toggle
-- Tags in blog posts
-- Accessible blog pagination
-- A styleguide™
+### 2.6 Social / platform links
+- **File:** `src/_data/personal.yaml` → `platforms: {}` (empty)
+- **File:** `src/_data/meta.js` → `author.fediverse`, `author.me`, `creator.social`
+- Footer renders no social row while empty.
 
-## Vulnerability Notes (updated 2026-08-28)
+### 2.7 Physical address
+- **File:** `src/_data/personal.yaml` → `address` = "Ghurab / Dhaka, Bangladesh"
+- Generic. Refine if the legal notice needs a real registered address.
 
-### `nanoid` override
+---
 
-`package.json` pins `nanoid` under `overrides` forcing a patched 5.x (`@11ty/webc` and `postcss` declare older ranges).
+## 3. BRAND ASSETS STILL MISSING
 
-### extract-zip
+### 3.1 Vector logo — highest-value asset gap
+- **Now:** the mark exists **only** as a 501×229 raster
+  (`src/assets/images/brand/ghurab-mark.png`).
+- **Consequences today:**
+  - The home cold-open animates 24 CSS clip-path shards over the raster
+    instead of true vector paths.
+  - Favicons are generated by cropping/inverting that raster.
+  - There is **no `favicon.svg`** and no SVG `<link>` — wrapping a PNG in an
+    `<svg>` would be a vector in name only.
+  - The header logo is a PNG, not an inline SVG.
+- **Supply an SVG and:** re-add the favicon.svg link in
+  `src/_includes/head/meta-info.njk`, switch the header back to the `{% svg %}`
+  shortcode, and the cold-open can animate real paths.
+- `src/_data/meta.js` → `pathToSvgLogo` still points at
+  `src/assets/svg/misc/logo.svg`, which is **the starter's leftover star icon**,
+  now unused by the favicon pipeline.
 
-Chain: `pa11y-ci` --> `puppeteer` --> `@puppeteer/browsers` --> `extract-zip`. Ignored until pa11y / Puppeteer drops extract-zip.
+### 3.2 Open Graph share image
+- **File:** `src/_data/meta.js` → `opengraph_default`
+- **Now:** `/assets/images/template/opengraph-default.jpg` — **the starter's
+  stock image**. This is what appears when anyone shares a non-post page.
+- Journalists are an explicit audience (S3), so this matters more than usual.
+- Blog posts auto-generate their own OG images and are fine.
 
-## First steps
+### 3.3 Author avatar
+- **File:** `src/_data/meta.js` → `author.avatar` = `/icon-512x512.png`
+- Now the real favicon tile, so acceptable — upgrade if a proper team avatar exists.
 
-[Read the Get started docs!](https://eleventy-excellent.netlify.app/get-started/)
+---
 
-## Development
+## 4. TO REVIEW AND REPLACE
 
-### Install dependencies
+- **Three pillar taglines** — Home.
+- **All Services page copy** — `src/pages/services.njk`: three service-line
+  descriptions, four cybersecurity sub-cards, capability tags, and the
+  "Start a Conversation" CTA.
+- **Contact page copy** — three audience cards + intro.
+- **404 copy** — "Signal Lost" / "The crow didn't see this one coming either."
+- **Blog index intro** and **Projects index intro**.
+- **Accessibility statement** — deliberately says "aims to conform", not
+  "conforms". Upgrade only after a real audit (see 5.1).
+- **Footer disclosure line** — "This site contains no classified or controlled
+  technical data."
 
-```
-npm install
-```
+---
 
-### Working locally
+## 5. VERIFICATION NOT YET DONE
 
-Starts watch tasks to compile when changes detected
+### 5.1 Accessibility audit
+- Not verified: keyboard traversal, screen-reader output, focus visibility.
 
-```
-npm start
-```
+### 5.2 Visual / browser check
+- No page has been **visually rendered** — no browser in my environment.
+- Roadmap Phase 9 still wants: cross-browser check (**Safari especially**, for
+  the cold-open animation), real-device responsive checks, Lighthouse.
 
-### Creating a production build
+### 5.3 Carbon figure
+- **File:** `src/pages/sustainability.md` — starter's false "A+ / 0.02g" claim
+  removed. Re-measure against the live URL after launch.
 
-Minify JS, CSS and HTML.
-
-```
-npm run build
-```
-
-## Built with Eleventy Excellent
-
-[Sites that are based on / built with Eleventy Excellent. ](https://eleventy-excellent.netlify.app/built-with/)
-Add your site by submitting a pull request! :)
-
-## Credits and Thank yous
-
-**Andy Bell**
-
-> Be the browser's mentor, not its micromanager. Give the browser some solid rules and hints, then let it make the right decisions for the people that visit it, based on their device, connection quality and capabilities.
-
-- https://buildexcellentwebsit.es/
-- https://cube.fyi/
-- https://learneleventyfromscratch.com/
-
-**Heydon Pickering**
-
-Heydon creates some invaluable resources.
-
-- https://every-layout.dev/
-- https://inclusive-components.design/
-
-**Zach Leatherman**
-
-Zach is developing Eleventy and is constantly making it even better!
-
-- https://www.11ty.dev/
-- https://www.zachleat.com/
-
-**Stephanie Eckles**
-
-Stephanie provides a lot of resources for Eleventy and modern CSS.
-
-- https://smolcss.dev/
-- https://moderncss.dev/
-
-**Ryan Mulligan**
-
-I'm using Ryan's example of a breakout wrapper on this site.
-
-Also have a look at those codepens!
-
-- https://ryanmulligan.dev/
-- https://codepen.io/hexagoncircle/
-
-**Sara Soueidan**
-
-I took a close look at Sara's recommendations for accessible theme switch and pagination in the Practical Accessibility course
-
-- https://practical-accessibility.today/
-- https://www.sarasoueidan.com/
-
-**Steven Woodson**
-
-The style guide was inspired by a [great talk on the Eleventy Meetup](https://www.youtube.com/watch?v=3mhA2bH6q8s). Steven also wrote a [blog post](https://stevenwoodson.com/blog/eleventy-style-guide-generator-step-by-step-guide-adding-to-an-existing-site/) about that.
-
-**Aleksandr Hovhannisyan**
-
-Aleksandr seems to value a well-structured project just as much as I do. It was the repo from aleksandrhovhannisyan.com that inspired me to write the article [Organizing the Eleventy config file](https://www.lenesaile.com/en/blog/organizing-the-eleventy-config-file/). The 301 redirect solution I'm using is from Aleksandr's article.
-
-- https://github.com/AleksandrHovhannisyan
-- https://www.aleksandrhovhannisyan.com/blog/eleventy-netlify-redirects/
-
-**Manuel Matuzović**
-
-Manuel is an accessibility expert. The menu I was using as default up to v2, is very much inspired by an article Manuel wrote on web.dev.
-
-- https://web.dev/website-navigation/
-- https://www.matuzo.at/
-
-**Bernard Nijenhuis**
-
-Bernard wrote the article on which the Open Graph Images implementation is based.
-
-- https://bnijenhuis.nl/notes/automatically-generate-open-graph-images-in-eleventy/
+---
