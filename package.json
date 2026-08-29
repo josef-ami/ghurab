@@ -22,7 +22,7 @@
     "pa11y:test": "sleep 3 && pa11y-ci --config ./dist/pa11y.json",
     "pa11y:serve": "ELEVENTY_ENV=test eleventy --serve --ignore-initial",
     "test:a11y": "npm run pa11y:build && (npm run pa11y:serve &) && sleep 5 && npm run pa11y:test",
-    "build-ghpages": "npx @11ty/eleventy --pathprefix=/ghurab"
+    "build-ghpages": "npm run clean && cross-env ELEVENTY_ENV=production eleventy --pathprefix=/ghurab"
   },
   "keywords": [],
   "repository": {
@@ -65,7 +65,6 @@
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-mark": "^4.0.0",
     "markdown-it-prism": "^4.0.0",
-    "netlify-plugin-cache": "^1.0.3",
     "pa11y-ci": "^4.1.1",
     "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1",

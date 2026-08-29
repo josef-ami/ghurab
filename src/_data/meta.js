@@ -5,10 +5,28 @@ export const siteName = 'Ghurab';
 // Present-tense claims describe the competition team; long-term ambitions
 // ("autonomous systems") stay framed as trajectory, per spec S2.
 export const siteDescription =
-  'Ghurab is a robotics, hackathon, and CTF competition team building toward autonomous systems, industrial robotics, and cybersecurity.';
+  'Ghurab is an engineering team building toward autonomous systems, industrial robotics, and cybersecurity.';
 export const siteType = 'Organization'; // schema -- Ghurab is a team/brand, not a person
-export const motto = 'Praemonitus Praemunitus';
-export const mottoTranslation = 'Forewarned is forearmed';
+// Stored in title case; the Home hero uppercases it via CSS (.hero-motto),
+// the footer renders it as-is.
+export const motto = 'Mens Agitat Molem';
+export const mottoTranslation = 'Intellect governs power';
+// Form backend: Web3Forms (https://web3forms.com).
+// GitHub Pages serves static files only and runs no server, so every form must
+// POST to a third-party endpoint. Web3Forms uses an "access key" (a UUID)
+// rather than a per-form URL: all forms post to the same endpoint and identify
+// themselves by this key.
+//
+// The access key is NOT a secret. It only authorises delivery to the email
+// address that registered it, and it is designed to ship in the public HTML of
+// static sites. Safe to commit to a public repo.
+//
+// TODO: paste the access key Web3Forms emails you. While this is empty, the
+// sponsor form renders visibly disabled instead of silently swallowing
+// submissions.
+export const web3formsKey = '7370fa3e-1a45-402e-babb-d16831304d53';
+export const web3formsEndpoint = 'https://api.web3forms.com/submit';
+
 export const locale = 'en_EN';
 export const lang = 'en';
 export const skipContent = 'Skip to content';
@@ -101,7 +119,7 @@ export const greenweb = {
       domain: domain
     }
   ],
-  services: [{domain: 'netlify.com', serviceType: 'cdn'}]
+  services: [{domain: 'github.com', serviceType: 'cdn'}]
 };
 export const tests = {
   pa11y: {

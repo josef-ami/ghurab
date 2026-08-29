@@ -1,19 +1,24 @@
-a[href^='http']:not([href*='localhost:8080']):not([href*='eleventy-excellent.netlify.app']):not(.button):not(
-    .no-indicator
-  ),
+/* External-link indicator.
+   The starter excluded its own demo domain (eleventy-excellent.netlify.app)
+   so self-links wouldn't get the icon. That exception is gone with Netlify;
+   Ghurab's own links are root-relative and never match a[href^='http'].
+
+   The icon path comes from --url-external-icon, injected in base.njk so
+   Eleventy's `url` filter can apply --pathprefix. A literal url('/assets/...')
+   here would 404 on GitHub Pages, which serves the site under /ghurab/. */
+
+a[href^='http']:not([href*='localhost:8080']):not(.button):not(.no-indicator),
 .indicator {
   padding-inline-end: 0.8em;
 }
 
-a[href^='http']:not([href*='localhost:8080']):not([href*='eleventy-excellent.netlify.app']):not(
-    .no-indicator
-  )::after,
+a[href^='http']:not([href*='localhost:8080']):not(.no-indicator)::after,
 .indicator::after {
   position: absolute;
   display: inline-block;
   inline-size: 1em;
   block-size: 1em;
-  background-image: url('/assets/images/template/external.svg');
+  background-image: var(--url-external-icon);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 60% auto;

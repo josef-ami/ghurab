@@ -101,9 +101,12 @@ export default async function (eleventyConfig) {
   // --------------------- Passthrough File Copy
 
   // -- same path
-  ['src/assets/fonts/', 'src/assets/images/template', 'src/assets/og-images'].forEach(path =>
-    eleventyConfig.addPassthroughCopy(path)
-  );
+  [
+    'src/assets/fonts/',
+    'src/assets/images/template',
+    'src/assets/images/brand', // brand mark(s) referenced via CSS background-image (e.g. Home cold-open) -- eleventy-img never sees these since they're not in <img> tags, so they need an explicit passthrough
+    'src/assets/og-images'
+  ].forEach(path => eleventyConfig.addPassthroughCopy(path));
 
   eleventyConfig.addPassthroughCopy({
     // -- to root

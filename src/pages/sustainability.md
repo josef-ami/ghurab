@@ -6,6 +6,11 @@ excludeFromSitemap: true
 permalink: /sustainability/index.html
 ---
 
-**Carbon Footprint**: This Website has a A+ Carbon Rating. [View full analysis on websitecarbon.com](https://www.websitecarbon.com/website/eleventy-excellent-netlify-app/)
+**Carbon Footprint**: Not yet measured for this site.
 
-Only 0.02 g of CO2 is produced every time someone visits this web page.
+{#- The starter shipped an "A+ Carbon Rating / 0.02 g CO2" claim linking to a
+    websitecarbon.com analysis of the starter author's own demo site, not this
+    one. Those numbers were never measured for Ghurab, so publishing them would
+    have been a false claim on a page whose entire purpose is making a
+    verifiable one. Re-run the analysis at https://www.websitecarbon.com/
+    against the live Ghurab URL after launch, then put the real figure here. #}

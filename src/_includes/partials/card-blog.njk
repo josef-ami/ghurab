@@ -4,7 +4,7 @@
 
 <custom-card clickable>
   <{{ headingLevel }} slot="headline" class="text-step-2">
-    <a href="{{ item.url | url }}">{{ item.data.title }}</a>
+    <a href="{{ item.url }}">{{ item.data.title }}</a>
   </{{ headingLevel }}>
   <span slot="date">{%- if item.data.draft -%}<span class="button" data-small-button data-button-variant='tertiary'>draft</span>{%- endif %} {% include "partials/date.njk" %}</span>
   {% if showTags and item.data.tags.length > 1 %}

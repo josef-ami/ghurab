@@ -27,6 +27,16 @@
     {% include "head/schema.njk" %}
 
     <!-- 5 CSS  -->
+    {#- Asset paths used inside CSS files. Eleventy's `url` filter (which
+       applies --pathprefix) can't reach into a .css file, and this site
+       deploys to GitHub Pages under a subpath, so any literal url('/assets/…')
+       in CSS would 404. Injecting them here as custom properties keeps the
+       stylesheets path-agnostic. #}
+    <style>
+      :root {
+        --url-external-icon: url('{{ "/assets/images/template/external.svg" | url }}');
+      }
+    </style>
     <!-- <link rel="stylesheet" href="/assets/css/global.css?{{ assetHash }}" /> -->
     {% include "head/css-inline.njk" %}
 

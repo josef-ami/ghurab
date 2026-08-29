@@ -1,54 +1,185 @@
 ---
 layout: base
 permalink: /index.html
-title: 'Eleventy Excellent'
-description: 'Eleventy starter using modern CSS, fluid type, fluid spacing, flexible layout and progressive enhancement.'
-blog:
-  title: 'Blog'
-  intro: "I'm showing the last 4 blog posts, but there might be more!"
+title: 'Ghurab — Robotics, Autonomous Systems & Cybersecurity'
+description: 'Ghurab is a robotics, hackathon, and CTF competition team building toward autonomous systems, industrial robotics, and cybersecurity. See the work, read the blog, or back us early.'
 ---
 
 <div class="wrapper">
-  <header class="full | section spot-color-theme-primary">
-    <div class="section__inner flow region">
-      <h1 class="text-center text-theme-light">{{ title }}</h1>
-    </div>
-    {% svg "divider/waves", null, "divider" %}
-  </header>
+  <!--
+    Cold open -> hero. One .cover viewport-height flex container with a
+    single [data-centered] child (the hero-lockup), per the contract
+    documented in compositions/cover.css. Shard geometry + flight paths
+    come from _data/coldOpenShards.js; each shard is a CSS clip-path
+    triangle over the single ghurab-mark.png raster (assets/images/brand),
+    not true SVG -- there's no vector version of the mark to animate, and
+    this achieves the same "assemble from fragments, no heavy JS/video"
+    brief from the roadmap using plain CSS animation (see home.css).
+  -->
+  <div class="cover">
+    <div class="hero-lockup flow" data-centered>
+      <div
+        class="cold-open"
+        aria-hidden="true"
+        style="--mark-url: url('{{ '/assets/images/brand/ghurab-mark.png' | url }}')"
+      >
+        {% for shard in coldOpenShards %}
+          <div
+            class="shard"
+            style="clip-path: polygon({{ shard.clip }}); --fly-x: {{ shard.flyX }}px; --fly-y: {{ shard.flyY }}px; --rot: {{ shard.rot }}deg; --delay: {{ shard.delay }}s;"
+          ></div>
+        {% endfor %}
+        <div class="cold-open__eye"></div>
+      </div>
 
-  <article class="full | region">
-    <div class="prose wrapper flow">
-      <h2 id="an-eleventy-starter">An Eleventy starter</h2>
-      <p>
-        Built around a CSS workflow that emphasizes guiding browser styling rather than micromanaging it. It
-        incorporates progressive enhancement, fluid type and spacing, and utilizes modern CSS features for
-        layout. The goal is to develop frontends that provide a great experience across all devices,
-        connection speeds, and usage contexts.
-      </p>
-      <p>
-        <strong>This is <a href="https://github.com/madrilene/eleventy-excellent/">version {{ pkg.version }}</a>.</strong> I keep a
-        <a href="https://github.com/madrilene/eleventy-excellent/tree/v1">branch of v1</a>,
-        <a href="https://github.com/madrilene/eleventy-excellent/tree/v2">v2</a> and <a href="https://github.com/madrilene/eleventy-excellent/tree/v3">v3</a>. I  tried to <a href="/get-started/#docs-lol">document most features and methodologies</a>.
-      </p>
-      <p><strong>Have fun</strong> and let me know if you find any issues or have ideas for improvements!</p>
-    </div>
-  </article>
+      <p class="hero-wordmark font-display hero-fade-in" style="--hero-delay: 1.3s">{{ meta.siteName }}</p>
+      <p class="hero-motto hero-fade-in" style="--hero-delay: 1.4s">{{ meta.motto }}</p>
 
-  <section class="full | region">
-    <div class="prose wrapper flow">
-      <h2>{{ blog.title }}</h2>
-      {% if blog.intro %}
-        <p>{{ blog.intro }}</p>
-      {% endif %}
-      <div class="feature |  region region-space-l">
-        <custom-masonry layout="50-50">
-          {% set itemList = collections.allPosts %}
-					{% asyncEach item in itemList.slice(0, 4) %}
-            {% set headingLevel = "h3" %}
-						{% include "partials/card-blog.njk" %}
-					{% endeach %}
-        </custom-masonry>
+      <!--
+        Hero line (chosen, supersedes the three candidates in spec S8).
+        Note it's the English rendering of the motto directly above it, so
+        the lockup reads as Latin -> English rather than as two unrelated
+        lines. Worth keeping that pairing in mind if either ever changes.
+      -->
+      <h1 class="hero-headline font-display hero-fade-in" style="--hero-delay: 1.5s">
+        Intellect governs power
+      </h1>
+
+      <p class="hero-subline hero-fade-in" style="--hero-delay: 1.6s">{{ meta.siteDescription }}</p>
+
+      <div class="hero-links cluster hero-fade-in" style="--hero-delay: 1.7s">
+        {#- Plain absolute paths, no `| url` filter: Eleventy 3 applies
+           HtmlBasePlugin by default, which already rewrites href/src with
+           --pathprefix at transform time. Adding `| url` here prefixes a
+           second time and produces /ghurab/ghurab/blog/ on GitHub Pages. #}
+        <a class="button" data-button-variant="primary" href="/blog/">Read the blog</a>
+        <a class="button" data-ghost-button href="/projects/">See the work</a>
+        <a class="button" data-ghost-button href="/services/">Hire us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three pillars. Heading is visually hidden -- three named cards read
+       fine on their own, and the spec calls for terse/no elaboration here. -->
+  <section class="region" aria-labelledby="pillars-heading">
+    <h2 id="pillars-heading" class="visually-hidden">Focus areas</h2>
+    <div class="grid" data-layout="thirds">
+      <div class="pillar flow">
+        <h3 class="font-display">Autonomous Systems</h3>
+        <p>Unmanned platforms — ground, air, and water.</p>
+      </div>
+      <div class="pillar flow">
+        <h3 class="font-display">Industrial Robotics &amp; Automation</h3>
+        <p>Precision engineering for real-world deployment.</p>
+      </div>
+      <div class="pillar flow">
+        <h3 class="font-display">Cybersecurity</h3>
+        <p>Offensive-minded security research and testing.</p>
       </div>
     </div>
   </section>
+
+  <!--
+    Track record: kept as explicit placeholders on purpose. Spec S11 lists
+    real competition/hackathon/CTF results as an open item -- nothing here
+    is invented. Dashed-border styling (home.css .track-record-card) is
+    what marks these as "fill me in," matching the roadmap's Phase 3 note.
+  -->
+  <section class="region flow" aria-labelledby="track-record-heading">
+    <h2 id="track-record-heading" class="font-display">Track Record</h2>
+    <div class="grid" data-layout="thirds">
+      <div class="track-record-card">
+        <p class="track-record-card__label">Competition</p>
+        <p class="track-record-card__entry">[Competition name] — [result] — [date]</p>
+      </div>
+      <div class="track-record-card">
+        <p class="track-record-card__label">Competition</p>
+        <p class="track-record-card__entry">[Competition name] — [result] — [date]</p>
+      </div>
+      <div class="track-record-card">
+        <p class="track-record-card__label">Hackathon</p>
+        <p class="track-record-card__entry">[Hackathon name] — [result] — [date]</p>
+      </div>
+      <div class="track-record-card">
+        <p class="track-record-card__label">CTF</p>
+        <p class="track-record-card__entry">[CTF name] — [placement] — [date]</p>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    Sponsorship CTA. Copy, fields, and button label are verbatim from spec
+    S8. Production is GitHub Pages, which serves static files and runs no
+    server, so the form POSTs to Web3Forms using the access key in
+    _data/meta.js (web3formsKey).
+
+    While that key is empty the form renders disabled with a visible notice,
+    rather than looking functional and dropping every submission on the
+    floor -- a dead sponsor form in front of the audience in spec S3 is
+    worse than an obviously-unfinished one.
+  -->
+  {% set disabledAttr = "" if meta.web3formsKey else "disabled" %}
+  <section class="region" aria-labelledby="sponsor-heading">
+    <div class="sponsor-cta flow">
+      <h2 id="sponsor-heading" class="font-display">Back Us Early</h2>
+      <p>
+        Ghurab started as a competition team — robotics, hackathons, CTFs — and is building toward advanced robotics
+        and autonomous systems. We're looking for sponsors who want in before this becomes a company, not after.
+      </p>
+
+      {% if not meta.web3formsKey %}
+        <p class="sponsor-cta__notice" role="status">
+          Form not yet connected — set <code>web3formsKey</code> in <code>src/_data/meta.js</code>.
+        </p>
+      {% endif %}
+
+      <form
+        name="sponsor-inquiry"
+        method="POST"
+        {% if meta.web3formsKey %}action="{{ meta.web3formsEndpoint }}"{% endif %}
+        class="sponsor-cta__form flow"
+      >
+        {#- Web3Forms control fields. access_key routes the submission to the
+           registered inbox; subject/from_name shape the notification email so
+           sponsor mail is distinguishable from client and press mail once the
+           Services and Contact forms exist. #}
+        <input type="hidden" name="access_key" value="{{ meta.web3formsKey }}" />
+        <input type="hidden" name="subject" value="Ghurab — new sponsor inquiry" />
+        <input type="hidden" name="from_name" value="Ghurab website" />
+
+        {#- Honeypot: Web3Forms discards any submission where the field named
+           `botcheck` is filled. tabindex/aria-hidden keep it away from
+           keyboard and screen-reader users; autocomplete=off keeps password
+           managers from populating it and tripping the filter. #}
+        <input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="sponsor-cta__field">
+          <label for="sponsor-name">Name</label>
+          <input type="text" id="sponsor-name" name="name" autocomplete="name" required {{ disabledAttr }} />
+        </div>
+
+        <div class="sponsor-cta__field">
+          <label for="sponsor-org">Organization</label>
+          <input type="text" id="sponsor-org" name="organization" autocomplete="organization" required {{ disabledAttr }} />
+        </div>
+
+        <div class="sponsor-cta__field">
+          <label for="sponsor-interest">Area of interest</label>
+          <select id="sponsor-interest" name="area_of_interest" required {{ disabledAttr }}>
+            <option value="" disabled selected>Select one</option>
+            <option value="Sponsorship">Sponsorship</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Press">Press</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <button class="button" data-button-variant="primary" type="submit" {{ disabledAttr }}>Become a Sponsor</button>
+      </form>
+    </div>
+  </section>
 </div>
+
+{% css "local" %}
+  {% include "css/home.css" %}
+{% endcss %}

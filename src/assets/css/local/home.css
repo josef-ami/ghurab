@@ -1,0 +1,235 @@
+/*
+  Home page -- cold-open assembly, hero lockup, pillars, track record,
+  sponsor CTA. Source file; built to src/_includes/css/home.css by the
+  postcss step (see src/_config/events/build-css.js) and pulled in via
+  {% css "local" %}{% include "css/home.css" %}{% endcss %} in index.njk.
+
+  Reduced motion: every animation below is left as a plain CSS animation
+  with no JS branching, because the site-wide reset already collapses
+  animation/transition durations to ~0 under prefers-reduced-motion
+  (src/assets/css/global/base/reset.css) -- so those users see the
+  assembled lockup and hero content immediately instead of a
+  drawn-out sequence, with no extra code needed here.
+*/
+
+/* ---------- Hero lockup shell ---------- */
+
+.hero-lockup {
+  --flow-space: var(--space-m-l);
+  max-inline-size: 44rem;
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.hero-lockup > * {
+  margin-inline: auto;
+}
+
+/* ---------- Cold-open: crow assembles from geometric fragments ---------- */
+
+.cold-open {
+  position: relative;
+  inline-size: clamp(220px, 34vw, 380px);
+  aspect-ratio: 501 / 229;
+  margin-inline: auto;
+  /* Ambient glow: the source mark is near-black facets on a near-black
+     page background (spec S9), so without this it reads as a bare
+     wireframe. drop-shadow follows the alpha silhouette of the whole
+     shard group (clip-path included), giving the mark a backlit
+     separation from the page without changing the art itself. */
+  filter: drop-shadow(0 0 28px rgba(62, 230, 240, 0.22)) drop-shadow(0 0 60px rgba(62, 230, 240, 0.12));
+}
+
+.shard {
+  position: absolute;
+  inset: 0;
+  /* Path is injected from the template via --mark-url rather than hardcoded
+     here. Eleventy's `url` filter (which applies --pathprefix) can't reach
+     inside a CSS file, and this site deploys to GitHub Pages under the
+     /ghurab/ subpath -- a literal url('/assets/...') would 404 there. */
+  background-image: var(--mark-url);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: shard-assemble 0.7s var(--delay, 0s) cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes shard-assemble {
+  from {
+    opacity: 0;
+    transform: translate(var(--fly-x, 0), var(--fly-y, 0)) rotate(var(--rot, 0deg)) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.cold-open__eye {
+  position: absolute;
+  inset-inline-start: 57.5%;
+  inset-block-start: 21.6%;
+  inline-size: 9%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-cyan) 0%, var(--color-cyan-subdued) 55%, transparent 75%);
+  box-shadow: 0 0 12px 3px rgba(62, 230, 240, 0.8);
+  opacity: 0;
+  animation:
+    eye-light 0.5s 1.15s cubic-bezier(0.16, 1, 0.3, 1) both,
+    eye-pulse 3.2s 1.65s ease-in-out infinite;
+}
+
+@keyframes eye-light {
+  from {
+    opacity: 0;
+    scale: 0.2;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes eye-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 12px 3px rgba(62, 230, 240, 0.8);
+  }
+  50% {
+    box-shadow:
+      0 0 18px 5px rgba(62, 230, 240, 0.95);
+  }
+}
+
+/* ---------- Wordmark + motto + headline stagger-in after the mark lands ---------- */
+
+.hero-fade-in {
+  animation: hero-fade-up 0.6s var(--hero-delay, 0s) ease-out both;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-wordmark {
+  font-size: var(--size-step-4);
+  letter-spacing: var(--tracking-wide);
+  margin-block-start: var(--space-m);
+}
+
+.hero-motto {
+  font-family: var(--font-mono);
+  font-size: var(--size-step-min-1);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+.hero-headline {
+  margin-block-start: var(--space-l);
+}
+
+.hero-subline {
+  color: var(--color-text-accent);
+  max-inline-size: 38ch;
+  margin-inline: auto;
+}
+
+/* ---------- Hub links: Read the blog / See the work / Hire us ---------- */
+
+.hero-links {
+  justify-content: center;
+  margin-block-start: var(--space-m);
+}
+
+/* ---------- Three pillars ---------- */
+
+.pillar {
+  --flow-space: var(--space-xs);
+  padding: var(--space-m-l);
+  border: var(--stroke);
+  border-radius: var(--border-radius-medium);
+  height: 100%;
+}
+
+.pillar h3 {
+  font-size: var(--size-step-1);
+}
+
+.pillar p {
+  color: var(--color-text-accent);
+}
+
+/* ---------- Track record (placeholder-ready, dashed until real results land) ---------- */
+
+.track-record-card {
+  --flow-space: var(--space-2xs);
+  padding: var(--space-s-m);
+  border: 2px dashed var(--color-bg-accent-2);
+  border-radius: var(--border-radius-medium);
+}
+
+.track-record-card__label {
+  font-family: var(--font-mono);
+  font-size: var(--size-step-min-2);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.track-record-card__entry {
+  color: var(--color-text-accent);
+  font-size: var(--size-step-min-1);
+}
+
+/* ---------- Sponsorship CTA ---------- */
+
+.sponsor-cta {
+  border: var(--stroke);
+  border-inline-start: 0.25rem solid var(--color-primary);
+  border-radius: var(--border-radius-medium);
+  padding: var(--space-l);
+}
+
+.sponsor-cta__form {
+  --flow-space: var(--space-m);
+  margin-block-start: var(--space-l);
+  max-inline-size: 34rem;
+}
+
+.sponsor-cta__field {
+  --flow-space: var(--space-s);
+}
+
+/* Build-time notice shown only while meta.formEndpoint is unset. Deliberately
+   plain and unmissable -- this is a "you haven't finished wiring this up"
+   marker for the team, not a message meant for real visitors. It disappears
+   on its own the moment an endpoint is configured. */
+.sponsor-cta__notice {
+  margin-block-start: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  border: 2px dashed var(--color-bg-accent-2);
+  border-radius: var(--border-radius-medium);
+  font-family: var(--font-mono);
+  font-size: var(--size-step-min-2);
+  color: var(--color-text-accent);
+}
+
+.sponsor-cta__form:has(:disabled) {
+  opacity: 0.55;
+}
+
+@media (max-width: 640px) {
+  .sponsor-cta {
+    padding: var(--space-m);
+  }
+}
