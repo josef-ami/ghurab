@@ -1,40 +1,41 @@
 export const url = process.env.URL || 'http://localhost:8080';
 // Extract domain from `url`
 export const domain = new URL(url).hostname;
-export const siteName = 'Eleventy Excellent';
-export const siteDescription = 'Eleventy starter for building modern, resilient websites';
-export const siteType = 'Person'; // schema
+export const siteName = 'Ghurab';
+// Present-tense claims describe the competition team; long-term ambitions
+// ("autonomous systems") stay framed as trajectory, per spec S2.
+export const siteDescription =
+  'Ghurab is a robotics, hackathon, and CTF competition team building toward autonomous systems, industrial robotics, and cybersecurity.';
+export const siteType = 'Organization'; // schema -- Ghurab is a team/brand, not a person
 export const locale = 'en_EN';
 export const lang = 'en';
 export const skipContent = 'Skip to content';
 // for the site content author, used in <head> meta and post h-card microformat
+// TODO (spec open item): founder/team names, whether to feature by name -- placeholder
+// left at team level ("Ghurab") until that call is made. Do not fill with fictional names.
 export const author = {
-  name: 'Lene Saile', // i.e. Lene Saile - page / blog author's name. Must be set.
-  avatar: '/icon-512x512.png', // path to the author's avatar. In this case just using a favicon.
-  fediverse: '@lene@front-end.social', // used for highlighting journalism on the fediverse. Can be Mastodon, Flipboard, Threads, WordPress (with the ActivityPub plugin installed), PeerTube, Pixelfed, etc. https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
-  me: [
-    // loop over verified rel=me profiles in the HTML <head>
-    'https://front-end.social/@lene'
-  ]
+  name: 'Ghurab',
+  avatar: '/icon-512x512.png', // placeholder until the real mark/favicon set exists
+  fediverse: '', // no team social presence yet
+  me: []
 };
 // for the site developer, used for footer credits and humans.txt info
 export const creator = {
-  name: 'Lene Saile', // i.e. Lene Saile - creator's (developer) name.
-  email: 'hola@lenesaile.com',
-  website: 'https://www.lenesaile.com',
-  social: 'https://front-end.social/@lene'
+  name: 'Ghurab',
+  email: '', // TODO: set once a contact address exists
+  website: url,
+  social: ''
 };
-export const pathToSvgLogo = 'src/assets/svg/misc/logo.svg'; // used for favicon generation
-export const themeColor = '#dd4462'; // used in manifest, for example primary color value
-export const themeLight = '#f8f8f8'; // used for meta tag theme-color, if light colors are prefered. best use value set for light bg
-export const themeDark = '#2e2e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
-export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
-export const opengraph_default_alt =
-  "Visible content: An Eleventy starter with CUBE CSS, Cube CSS, Every Layout, Design Tokens and Tailwind for uitility classes. A workflow for building modern and resilient websites, introduced by Andy Bell's project buildexcellentwebsit.es"; // alt text for default meta image"
+export const pathToSvgLogo = 'src/assets/svg/misc/logo.svg'; // placeholder mark -- swap for the real crow/jet/warship SVG (spec S1) when ready
+export const themeColor = '#3ee6f0'; // cyan accent -- manifest/PWA primary color
+export const themeLight = '#0a0a0a'; // Ghurab is single-theme (near-black); both light/dark meta values point at the same surface
+export const themeDark = '#0a0a0a';
+export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // TODO: replace with a real Ghurab OG image once the mark/hero art exists
+export const opengraph_default_alt = 'Ghurab -- robotics, autonomous systems, and cybersecurity.';
 export const blog = {
   // RSS feed
-  name: 'My Web Development Blog',
-  description: 'Tell the word what you are writing about in your blog. It will show up on feed readers.',
+  name: 'Ghurab / Build Log',
+  description: 'Technical progress logs and competitive-experience writeups from the Ghurab team.',
   // feed links are looped over in the head. You may add more to the array.
   feedLinks: [
     {

@@ -1,16 +1,10 @@
 {
   "title": "Border Radius",
-  "description": "",
+  "description": "Sharper, tighter radii than the starter default -- reinforces the faceted/geometric mark and the Anduril-style cinematic-tech register rather than a friendly/rounded one.",
   "prefix": "border-radius",
   "meta": {},
   "items": [
-    {
-      "name": "small",
-      "value": "0.1875rem"
-    },
-    {
-      "name": "Medium",
-      "value": "0.3rem"
-    }
+    { "name": "small", "value": "0.125rem" },
+    { "name": "Medium", "value": "0.25rem" }
   ]
 }

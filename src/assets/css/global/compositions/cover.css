@@ -1,0 +1,42 @@
+/*
+COVER
+More info: https://every-layout.dev/layouts/cover/
+A layout for a full-bleed hero: content sits top and bottom,
+with one designated element vertically centered in the
+remaining space. Built for the Home cold-open -> hero -> CTA
+flow, but generic enough for any full-viewport section.
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--cover-min-height (100vh): How tall the cover should be.
+
+--gutter (var(--space-s-m)): Padding applied to the block start
+and end of the cover.
+
+EXCEPTIONS
+Mark exactly one direct child with [data-centered] -- that's the
+element pushed into the middle via auto margins. Everything else
+stacks in normal document order above/below it.
+*/
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  min-block-size: var(--cover-min-height, 100vh);
+  padding-block: var(--gutter, var(--space-s-m));
+}
+
+.cover > * {
+  margin-block: var(--space-s-m);
+}
+
+.cover > :first-child:not([data-centered]) {
+  margin-block-start: 0;
+}
+
+.cover > :last-child:not([data-centered]) {
+  margin-block-end: 0;
+}
+
+.cover > [data-centered] {
+  margin-block: auto;
+}

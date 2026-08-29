@@ -1,67 +1,27 @@
 {
   "title": "Colors",
-  "description": "Hex color codes that can be shared, cross-platform. They can be converted at point of usage, such as HSL for web or CMYK for print. neutral and vibrant colors are converted to color palettes, fixed colors are kept as they are",
+  "description": "Ghurab palette. Near-black surface scale, off-white/grey text scale, and a single cyan accent pulled from the logo's eye. Secondary/Tertiary are kept only because starter blocks (button, code, footer) reference them structurally -- they're aliased to neutral tones, not a second brand color, so the site stays single-accent in practice.",
   "prefix": "color",
   "items": [
-    {
-      "name": "Gray 100",
-      "value": "#f8f8f8"
-    },
-    {
-      "name": "Gray 200",
-      "value": "#e4e4e4"
-    },
-    {
-      "name": "Gray 300",
-      "value": "#aeaeae"
-    },
-    {
-      "name": "Gray 400",
-      "value": "#808080"
-    },
-    {
-      "name": "Gray 500",
-      "value": "#636363"
-    },
-    {
-      "name": "Gray 600",
-      "value": "#484848"
-    },
-    {
-      "name": "Gray 700",
-      "value": "#3a3a3a"
-    },
-    {
-      "name": "Gray 800",
-      "value": "#2e2e2e"
-    },
-    {
-      "name": "Gray 900",
-      "value": "#161616"
-    },
-    {
-      "name": "Pink",
-      "value": "#dd4462"
-    },
-    {
-      "name": "Pink Subdued",
-      "value": "#ce5769"
-    },
-    {
-      "name": "Blue",
-      "value": "#4467dd"
-    },
-    {
-      "name": "Blue Subdued",
-      "value": "#4d6cc8"
-    },
-    {
-      "name": "Gold",
-      "value": "#fbbe25"
-    },
-    {
-      "name": "Gold Subdued",
-      "value": "#f1c15b"
-    }
+    { "name": "Gray 100", "value": "#eaeaea" },
+    { "name": "Gray 200", "value": "#c7c7c7" },
+    { "name": "Gray 300", "value": "#9a9a9a" },
+    { "name": "Gray 400", "value": "#707070" },
+    { "name": "Gray 500", "value": "#4a4a4a" },
+    { "name": "Gray 600", "value": "#242424" },
+    { "name": "Gray 700", "value": "#1a1a1a" },
+    { "name": "Gray 800", "value": "#141414" },
+    { "name": "Gray 900", "value": "#0a0a0a" },
+
+    { "name": "Cyan", "value": "#3ee6f0" },
+    { "name": "Cyan Subdued", "value": "#28a8b0" },
+    { "name": "Cyan Dim", "value": "#1c454a" },
+
+    { "name": "Pink", "value": "#9a9a9a" },
+    { "name": "Pink Subdued", "value": "#9a9a9a" },
+    { "name": "Blue", "value": "#9a9a9a" },
+    { "name": "Blue Subdued", "value": "#9a9a9a" },
+    { "name": "Gold", "value": "#9a9a9a" },
+    { "name": "Gold Subdued", "value": "#9a9a9a" }
   ]
 }

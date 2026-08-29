@@ -1,61 +1,26 @@
+<!--
+  Built on Eleventy Excellent (https://github.com/madrilene/eleventy-excellent)
+  by Lene Saile -- credited here in source rather than on-page, since an
+  on-page "made with" line would break the single-brand register the spec
+  calls for across every page (S1: "no shift to a more corporate register").
+  Keep this comment or move the credit into the repo README -- just don't
+  drop it entirely; it's due per the starter's license.
+-->
 <footer class="site-footer mt-l-xl p-s-m">
   <div class="wrapper">
-    <div class="cluster gutter-xs">
-      <nav class="cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
-        &copy; {% year %}
-        <a href="/" {{ indicateActiveHome }}
-          ><span class="font-display">{{ meta.siteName }}</span> <small>{{ pkg.version }}</small>
-        </a>
+    <div class="flow gutter-xs text-step-min-1">
+      <p class="font-display">
+        <a href="/" {{ indicateActiveHome }}>{{ meta.siteName }}</a>
+        &mdash; <span class="text-theme-text-accent">Praemonitus Praemunitus</span>
+      </p>
 
-        {% for item in navigation.bottom %}
-          <a
-            href="{{ item.url }}"
-            {{
-              helpers.getLinkActiveState(item.url,
-              page.url)
-              |
-              safe
-            }}
-            >{{ item.text }}</a
-          >
-        {% endfor %}
-      </nav>
+      {#- Spec S8 flags this line as optional / "your call whether to keep it".
+         Currently ON. Delete this <p> to remove it. #}
+      <p class="text-theme-text-accent">This site contains no classified or controlled technical data.</p>
 
-      <nav class="cluster" aria-label="{{ meta.navigation.ariaPlatforms }}">
-        <!-- gets the first item from the feed loop set in meta -->
-        <a
-          href="{{ meta.blog.feedLinks[0].url }}"
-          rel="alternate"
-          type="{{ meta.blog.feedLinks[0].type }}"
-          class="button"
-          data-icon
-        >
-          <span class="visually-hidden">{{ meta.blog.feedLinks[0].title }}</span>
-          {% svg "misc/rss" %}
-        </a>
-
-        {% for key, value in personal.platforms %}
-          {% if value != "" %}
-            <!-- regular platforms -->
-            <a class="no-indicator button" data-icon href="{{ value }}" rel="me">
-              <span class="visually-hidden">{{ key | capitalize }}</span>
-              {% svg 'platform/' + key %}
-            </a>
-          {% endif %}
-        {% endfor %}
-      </nav>
+      <p class="text-theme-text-accent">
+        &copy; {% year %} {{ meta.siteName }}
+      </p>
     </div>
-
-    {% include 'partials/theme-switch.njk' %}
-
-    <aside class="creator | cluster gutter-2xs text-step-min-1 mt-xl">
-      Made with <span class="visually-hidden">love</span> <span>{% svg "misc/heart" %}</span> and
-      <a class="no-indicator" href="https://www.11ty.dev/">
-        <span class="visually-hidden">Eleventy</span>
-        {% svg "misc/11ty" %}
-      </a>
-      by
-      <a href="{{ meta.creator.website }}">{{ meta.creator.name }}</a>
-    </aside>
   </div>
 </footer>

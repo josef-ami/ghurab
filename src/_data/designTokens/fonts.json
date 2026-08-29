@@ -5,26 +5,18 @@
   "items": [
     {
       "name": "Display",
-      "description": "Display font stack for headings and large text. Redhat Display is made for headlines and big statements, are low contrast and spaced tightly, with a large x-height and open counters.",
-      "value": ["Redhat", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+      "description": "Space Grotesk -- geometric, technical, distinctive at large sizes. Used for the wordmark, H1-H3, hero lines, and stat/track-record numbers. Deliberately not a sci-fi/mono display face (e.g. Orbitron) -- those read as costume-y rather than credible to the Brig-Gen/VC/journalist audience.",
+      "value": ["Space Grotesk", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
     },
     {
       "name": "Base",
-      "description": "Base font stack for body text. Atkinson Hyperlegible, named after the founder of the Braille Institute, has been developed specifically to increase legibility for readers with low vision, and to improve comprehension.",
-      "value": ["Atkinson Hyperlegible", "system-ui", "sans-serif"]
+      "description": "Inter -- high legibility at small sizes, neutral and professional, holds up in dense body copy (Services, Blog) as well as UI chrome (nav, form labels).",
+      "value": ["Inter", "system-ui", "sans-serif"]
     },
     {
       "name": "Mono",
-      "description": "Monospace font for code and preformatted text.",
-      "value": [
-        "ui-monospace",
-        "Cascadia Code",
-        "Source Code Pro",
-        "Menlo",
-        "Consolas",
-        "DejaVu Sans Mono",
-        "monospace"
-      ]
+      "description": "JetBrains Mono -- for code blocks, CTF/technical excerpts, and track-record stat labels where a monospace treatment signals 'measured data' rather than marketing copy.",
+      "value": ["JetBrains Mono", "ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "monospace"]
     }
   ]
 }

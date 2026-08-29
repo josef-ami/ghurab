@@ -1,74 +1,41 @@
-/* Global variables.  */
+/* Global variables.
+   Ghurab is single-theme by brand decision (spec S9: "near-black background
+   throughout"), not light/dark switchable like the eleventy-excellent
+   default. The starter's light-theme block and prefers-color-scheme /
+   data-theme overrides have been collapsed into one :root block below.
+   Reversing this (re-enabling the switch) is a one-file change here plus
+   restoring the include in footer.njk -- see BUILD_NOTES.md. */
 
-/* Basic variable definitions for color schemes */
 :root {
   --gutter: var(--space-m-l);
   --transition-duration: 250ms;
   --transition-timing: ease;
   --wrapper-width: 85rem;
-  --tracking: -0.04ch;
-  --tracking-s: -0.075ch;
-  --tracking-wide: 0.04ch;
-  --stroke: 1px solid var(--color-bg-accent);
-
-  --gradient-rainbow: linear-gradient(90deg, #cf4662 10%, #fbbe25 30%, #62c95c 50%, #08bccb 75%, #a977d5 90%);
-  --gradient-conic: conic-gradient(
-    var(--color-primary) 0 28%,
-    var(--color-secondary) 0 67%,
-    var(--color-tertiary) 0 100%
-  );
-  --gradient-stripes: linear-gradient(
-    45deg,
-    var(--color-gray-900) 0 75%,
-    var(--color-primary) 0 85%,
-    var(--color-secondary) 0 92%,
-    var(--color-tertiary) 0 100%
-  );
+  --tracking: -0.01ch;
+  --tracking-s: -0.02ch;
+  --tracking-wide: 0.08ch;
+  --stroke: 1px solid var(--color-bg-accent-2);
 
   --color-light: var(--color-gray-100);
   --color-dark: var(--color-gray-900);
   --color-mid: var(--color-gray-400);
-}
 
-/* Light theme */
-:root,
-:root[data-theme='light'] {
-  --color-text: var(--color-gray-800);
-  --color-bg: var(--color-gray-100);
+  /* Surfaces */
+  --color-bg: var(--color-gray-900); /* #0a0a0a page background */
+  --color-bg-accent: var(--color-gray-800); /* #141414 card/section surfaces */
+  --color-bg-accent-2: var(--color-gray-600); /* #242424 borders, dividers, hover fills */
 
-  --color-primary: var(--color-pink);
-  --color-secondary: var(--color-blue);
-  --color-tertiary: var(--color-gold);
+  /* Text */
+  --color-text: var(--color-gray-100); /* #eaeaea primary reading text */
+  --color-text-accent: var(--color-gray-300); /* #9a9a9a secondary/meta text -- 7:1 on bg, still AA at body size */
 
-  --color-text-accent: var(--color-gray-700);
-  --color-bg-accent: var(--color-gray-200);
-  --color-bg-accent-2: var(--color-gray-300);
-}
+  /* Brand accent -- single cyan, used sparingly (CTA, icons, key dividers, links) */
+  --color-primary: var(--color-cyan);
+  --color-accent: var(--color-cyan);
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: var(--color-gray-100);
-    --color-bg: var(--color-gray-800);
-
-    --color-primary: var(--color-pink-subdued);
-    --color-secondary: var(--color-blue-subdued);
-    --color-tertiary: var(--color-gold-subdued);
-
-    --color-text-accent: var(--color-gray-300);
-    --color-bg-accent: var(--color-gray-700);
-    --color-bg-accent-2: var(--color-gray-600);
-  }
-}
-:root[data-theme='dark'] {
-  --color-text: var(--color-gray-100);
-  --color-bg: var(--color-gray-800);
-
-  --color-primary: var(--color-pink-subdued);
-  --color-secondary: var(--color-blue-subdued);
-  --color-tertiary: var(--color-gold-subdued);
-
-  --color-text-accent: var(--color-gray-300);
-  --color-bg-accent: var(--color-gray-700);
-  --color-bg-accent-2: var(--color-gray-600);
+  /* Kept for structural compatibility with starter blocks (button hover states,
+     code-block accents, blockquote rules) that reference secondary/tertiary.
+     These are neutral, not a second brand color -- see colors.json note. */
+  --color-secondary: var(--color-gray-300);
+  --color-tertiary: var(--color-gray-400);
 }
