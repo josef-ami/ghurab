@@ -1,0 +1,52 @@
+---
+layout: base
+schema: CreativeWork
+---
+
+<div class="region" style="--region-space-top: var(--space-xl-2xl)">
+  <div class="wrapper flow prose">
+    <h1 class="font-display">{{ title }}</h1>
+
+    <p class="text-theme-text-accent">{{ summary }}</p>
+
+    <p class="meta | cluster gutter-xs-s">
+      {% set definedDate = date %} {% include "partials/date.njk" %}
+      {% if tags.length > 1 %}
+        {% for tag in tags %}{% if tag != "projects" %}
+          <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button> {{ tag }} </a>
+        {% endif %}{% endfor %}
+      {% endif %}
+    </p>
+
+    {#- Links row: only renders links for fields that are actually filled in.
+       An entry with none of the three (early-stage project, nothing public
+       yet) just shows no links row at all -- no dead/empty buttons. #}
+    {% if whitepaperUrl or repoUrl or cadUrl %}
+      <p class="cluster gutter-xs-s">
+        {% if whitepaperUrl %}
+          <a class="button" data-button-variant="primary" href="{{ whitepaperUrl }}">Whitepaper (PDF)</a>
+        {% endif %}
+        {% if repoUrl %}
+          <a class="button" data-button-variant="secondary" href="{{ repoUrl }}">Source repo</a>
+        {% endif %}
+        {% if cadUrl and not viewer %}
+          <a class="button" data-button-variant="secondary" href="{{ cadUrl }}">CAD files</a>
+        {% endif %}
+      </p>
+    {% endif %}
+
+    {% if viewer %}
+      {#- Flagship project. Phase 5 replaces this block with a real
+         <model-viewer> embed pointed at the glTF/GLB export. Left as an
+         explicit placeholder rather than a silent no-op so it's obvious
+         this project is queued for the viewer treatment. #}
+      <div class="p-s-m" style="border: var(--stroke); border-radius: var(--border-radius-medium);">
+        <p class="text-theme-text-accent">[3D viewer goes here — Phase 5.]
+          {% if cadUrl %}In the meantime: <a href="{{ cadUrl }}">CAD source</a>.{% endif %}
+        </p>
+      </div>
+    {% endif %}
+
+    {{ content | safe }}
+  </div>
+</div>

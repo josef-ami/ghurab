@@ -7,6 +7,8 @@ export const siteName = 'Ghurab';
 export const siteDescription =
   'Ghurab is a robotics, hackathon, and CTF competition team building toward autonomous systems, industrial robotics, and cybersecurity.';
 export const siteType = 'Organization'; // schema -- Ghurab is a team/brand, not a person
+export const motto = 'Praemonitus Praemunitus';
+export const mottoTranslation = 'Forewarned is forearmed';
 export const locale = 'en_EN';
 export const lang = 'en';
 export const skipContent = 'Skip to content';
@@ -55,6 +57,13 @@ export const blog = {
   tagMore: 'More tags:',
   // pagination
   paginationLabel: 'Blog',
+  paginationPage: 'Page',
+  paginationPrevious: 'Previous',
+  paginationNext: 'Next',
+  paginationNumbers: true
+};
+export const projects = {
+  paginationLabel: 'Projects',
   paginationPage: 'Page',
   paginationPrevious: 'Previous',
   paginationNext: 'Next',

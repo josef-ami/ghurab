@@ -1,7 +1,7 @@
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "CreativeWork",
     "mainEntityOfPage": {
       "@type": "WebPage"
     },
@@ -9,19 +9,15 @@
       "@id": "{{ meta.url }}#website"
     },
     "@id": "{{ url }}",
-    "headline": "{{ title or meta.siteName }}",
-    "description": "{{ discover.description or description or meta.siteDescription }}",
+    "name": "{{ title or meta.siteName }}",
+    "description": "{{ discover.description or summary or meta.siteDescription }}",
     "image": "{{ meta.url }}{% if discover.image %}/assets/images/{{ discover.image }}{% else %}{{ meta.opengraph_default }}{% endif %}",
     "inLanguage": "{{ meta.locale }}",
-    "publisher": {
+    "creator": {
       "@type": "{{ meta.siteType }}",
       "name": "{{ meta.author.name }}",
       "url": "{{ meta.url }}"
     },
-    "author": {
-      "@type": "{{ meta.siteType }}",
-      "name": "{{ meta.author.name }}"
-    },
-    "datePublished": "{{ date | toIsoString }}"
+    "dateCreated": "{{ date | toIsoString }}"
   }
 </script>
