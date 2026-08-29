@@ -27,7 +27,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/PLACEHOLDER-org/PLACEHOLDER-repo.git"
+    "url": "https://github.com/josef-ami/ghurab"
   },
   "overrides": {
     "nanoid": "5.1.16"

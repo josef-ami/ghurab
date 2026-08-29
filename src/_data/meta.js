@@ -24,7 +24,7 @@ export const mottoTranslation = 'Intellect governs power';
 // TODO: paste the access key Web3Forms emails you. While this is empty, the
 // sponsor form renders visibly disabled instead of silently swallowing
 // submissions.
-export const web3formsKey = '';
+export const web3formsKey = '7370fa3e-1a45-402e-babb-d16831304d53';
 export const web3formsEndpoint = 'https://api.web3forms.com/submit';
 
 export const locale = 'en_EN';

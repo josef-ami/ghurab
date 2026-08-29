@@ -8,20 +8,6 @@ date: "Last Modified"
 layout: page
 ---
 
-<!-- PLACEHOLDER — NEEDS LEGAL REVIEW BEFORE LAUNCH.
-
-     The starter's version stated "This website does not collect any data" in
-     first-person voice. That is now factually wrong: the sponsor, client and
-     contact forms POST to Web3Forms, a third-party processor, which receives
-     everything a visitor types plus their IP address.
-
-     Publishing the old text would have been a false privacy claim to an
-     audience that includes government secretaries and journalists. This is an
-     honest description of the current behaviour, not a compliant policy —
-     jurisdiction (Bangladesh, plus GDPR if EU visitors are in scope), a data
-     controller identity, and a retention period all still need deciding. -->
-
-**This page is a placeholder pending legal review.**
 
 ## What this site collects
 
