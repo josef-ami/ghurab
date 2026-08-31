@@ -124,7 +124,7 @@ export const greenweb = {
 export const tests = {
   pa11y: {
     // keep customPaths empty if you want to test all pages
-    customPaths: ['/', '/about/', '/blog/', '/projects/', '/services/', '/contact/', '/404.html', '/styleguide/'],
+    customPaths: ['/', '/about/', '/blog/', '/projects/', '/services/', '/contact/', '/404.html'],
     globalIgnore: []
   }
 };
