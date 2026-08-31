@@ -191,6 +191,20 @@
   font-size: var(--size-step-min-1);
 }
 
+/* Filled state: real result landed. Solid border + cyan leading edge,
+   matching the sponsor-CTA "active" signal, in place of the dashed
+   "fill me in" border above. */
+.track-record-card[data-filled] {
+  border-style: solid;
+  border-color: var(--color-bg-accent-2);
+  border-inline-start: 0.25rem solid var(--color-primary);
+}
+
+.track-record-card[data-filled] .track-record-card__entry strong {
+  color: var(--color-text);
+  font-weight: var(--font-bold);
+}
+
 /* ---------- Sponsorship CTA ---------- */
 
 .sponsor-cta {

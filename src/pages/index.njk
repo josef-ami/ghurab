@@ -80,29 +80,38 @@ description: 'Ghurab is a robotics, hackathon, and CTF competition team building
   </section>
 
   <!--
-    Track record: kept as explicit placeholders on purpose. Spec S11 lists
-    real competition/hackathon/CTF results as an open item -- nothing here
-    is invented. Dashed-border styling (home.css .track-record-card) is
-    what marks these as "fill me in," matching the roadmap's Phase 3 note.
+    Track record: real competition results (spec S11 resolved for competitions).
+    Nothing here is invented -- every placement is an outright 1st, confirmed
+    by the team. Cards use the filled (solid + cyan edge) variant, not the
+    dashed "fill me in" state. Ordered strongest-first: the WRO card carries
+    the full story, the other two stay terse so the detail reads as earned.
+
+    Hackathon and CTF cards are intentionally absent until real results land
+    -- card count is arbitrary (see home.css), so add them then rather than
+    showing empty placeholders in front of the spec S3 audience.
   -->
   <section class="region flow" aria-labelledby="track-record-heading">
     <h2 id="track-record-heading" class="font-display">Track Record</h2>
     <div class="grid" data-layout="thirds">
-      <div class="track-record-card">
-        <p class="track-record-card__label">Competition</p>
-        <p class="track-record-card__entry">[Competition name] — [result] — [date]</p>
+      <div class="track-record-card" data-filled>
+        <p class="track-record-card__label">Robotics · WRO 2026</p>
+        <p class="track-record-card__entry">
+          <strong>World Robotics Olympiad 2026 — National Round, Future Engineers.</strong>
+          Top-performing national team in the world for the round, and the fastest open-round lap in the
+          competition's history — on a robot built in half a week at a quarter of the field's cost.
+        </p>
       </div>
-      <div class="track-record-card">
-        <p class="track-record-card__label">Competition</p>
-        <p class="track-record-card__entry">[Competition name] — [result] — [date]</p>
+      <div class="track-record-card" data-filled>
+        <p class="track-record-card__label">Robotics · Cybernauts 2026</p>
+        <p class="track-record-card__entry">
+          <strong>Cybernauts 2026, North South University — 1st, Combat Robotics (Sumo).</strong>
+        </p>
       </div>
-      <div class="track-record-card">
-        <p class="track-record-card__label">Hackathon</p>
-        <p class="track-record-card__entry">[Hackathon name] — [result] — [date]</p>
-      </div>
-      <div class="track-record-card">
-        <p class="track-record-card__label">CTF</p>
-        <p class="track-record-card__entry">[CTF name] — [placement] — [date]</p>
+      <div class="track-record-card" data-filled>
+        <p class="track-record-card__label">Robotics · IUT Techathon 2025</p>
+        <p class="track-record-card__entry">
+          <strong>IUT Techathon 2025, Islamic University of Technology — 1st, Line-Following Robotics.</strong>
+        </p>
       </div>
     </div>
   </section>
